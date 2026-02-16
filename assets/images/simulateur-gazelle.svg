@@ -1,0 +1,99 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a5f"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#bgGrad2)"/>
+  
+  <!-- Cockpit frame -->
+  <path d="M 100 350 Q 400 380 700 350 L 750 150 Q 400 50 50 150 Z" fill="#1e293b" stroke="#475569" stroke-width="2"/>
+  
+  <!-- Main instrument panel -->
+  <rect x="150" y="120" width="500" height="200" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  
+  <!-- Left screen - Artificial Horizon -->
+  <rect x="170" y="140" width="140" height="120" rx="5" fill="url(#screenGrad)" stroke="#3b82f6" stroke-width="2"/>
+  <!-- Horizon line -->
+  <line x1="180" y1="200" x2="300" y2="200" stroke="#22c55e" stroke-width="2"/>
+  <!-- Aircraft symbol -->
+  <path d="M 220 200 L 240 200 M 230 195 L 230 205 M 260 200 L 280 200" stroke="#f59e0b" stroke-width="3"/>
+  <!-- Pitch marks -->
+  <line x1="210" y1="180" x2="250" y2="180" stroke="#22c55e" stroke-width="1" opacity="0.5"/>
+  <line x1="210" y1="220" x2="250" y2="220" stroke="#22c55e" stroke-width="1" opacity="0.5"/>
+  <text x="240" y="250" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="10">ATTITUDE</text>
+  
+  <!-- Center screen - Navigation/Map -->
+  <rect x="330" y="140" width="140" height="120" rx="5" fill="url(#screenGrad)" stroke="#8b5cf6" stroke-width="2"/>
+  <!-- Compass rose -->
+  <circle cx="400" cy="195" r="40" fill="none" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="400" y="165" text-anchor="middle" fill="#8b5cf6" font-family="monospace" font-size="12">N</text>
+  <text x="400" y="230" text-anchor="middle" fill="#8b5cf6" font-family="monospace" font-size="10">S</text>
+  <text x="365" y="200" text-anchor="middle" fill="#8b5cf6" font-family="monospace" font-size="10">W</text>
+  <text x="435" y="200" text-anchor="middle" fill="#8b5cf6" font-family="monospace" font-size="10">E</text>
+  <!-- Heading indicator -->
+  <polygon points="400,170 395,180 405,180" fill="#ef4444"/>
+  <text x="400" y="250" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="10">NAV</text>
+  
+  <!-- Right screen - Engine/Systems -->
+  <rect x="490" y="140" width="140" height="120" rx="5" fill="url(#screenGrad)" stroke="#22c55e" stroke-width="2"/>
+  <!-- Engine gauges -->
+  <g transform="translate(530, 180)">
+    <circle cx="0" cy="0" r="25" fill="none" stroke="#334155" stroke-width="3"/>
+    <path d="M 0 0 L 0 -20" stroke="#22c55e" stroke-width="3" transform="rotate(45)"/>
+    <text x="0" y="35" text-anchor="middle" fill="#22c55e" font-family="monospace" font-size="10">N1 87%</text>
+  </g>
+  <g transform="translate(590, 180)">
+    <circle cx="0" cy="0" r="25" fill="none" stroke="#334155" stroke-width="3"/>
+    <path d="M 0 0 L 0 -20" stroke="#22c55e" stroke-width="3" transform="rotate(60)"/>
+    <text x="0" y="35" text-anchor="middle" fill="#22c55e" font-family="monospace" font-size="10">TOT 620°</text>
+  </g>
+  <text x="560" y="250" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="10">ENGINE</text>
+  
+  <!-- Warning lights panel -->
+  <rect x="200" y="280" width="400" height="30" rx="3" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <circle cx="240" cy="295" r="8" fill="#22c55e" filter="url(#glow2)"/>
+  <circle cx="300" cy="295" r="8" fill="#22c55e" filter="url(#glow2)"/>
+  <circle cx="360" cy="295" r="8" fill="#f59e0b" filter="url(#glow2)"/>
+  <circle cx="420" cy="295" r="8" fill="#22c55e" filter="url(#glow2)"/>
+  <circle cx="480" cy="295" r="8" fill="#22c55e" filter="url(#glow2)"/>
+  <circle cx="540" cy="295" r="8" fill="#22c55e" filter="url(#glow2)"/>
+  
+  <!-- Collective (left) -->
+  <rect x="60" y="200" width="30" height="120" rx="5" fill="#334155" stroke="#475569" stroke-width="2"/>
+  <rect x="55" y="220" width="40" height="20" rx="3" fill="#1e293b" stroke="#475569"/>
+  
+  <!-- Cyclic (center bottom) -->
+  <ellipse cx="400" cy="360" rx="60" ry="20" fill="#334155" stroke="#475569" stroke-width="2"/>
+  <rect x="390" y="320" width="20" height="50" rx="3" fill="#1e293b" stroke="#475569"/>
+  <circle cx="400" cy="315" r="15" fill="#334155" stroke="#475569" stroke-width="2"/>
+  
+  <!-- Pedals hint -->
+  <rect x="320" y="380" width="60" height="15" rx="3" fill="#334155" opacity="0.5"/>
+  <rect x="420" y="380" width="60" height="15" rx="3" fill="#334155" opacity="0.5"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" fill="#8b5cf6" font-family="monospace" font-size="16" font-weight="bold">SA 342 GAZELLE COCKPIT</text>
+  <text x="400" y="60" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="11">SIMULATION TRAINING SYSTEM</text>
+  
+  <!-- Status indicators -->
+  <g transform="translate(700, 80)">
+    <rect x="-40" y="-20" width="80" height="50" rx="5" fill="#0f172a" stroke="#22c55e" stroke-width="1"/>
+    <text x="0" y="-5" text-anchor="middle" fill="#22c55e" font-family="monospace" font-size="10">STATUS</text>
+    <text x="0" y="15" text-anchor="middle" fill="#22c55e" font-family="monospace" font-size="14" font-weight="bold">READY</text>
+  </g>
+</svg>

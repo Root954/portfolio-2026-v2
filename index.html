@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Junior MBA - Ingénieur Systèmes Embarqués spécialisé en FPGA, STM32, VHDL, Linux Embarqué, Vision par Ordinateur et IoT.">
+    <meta name="keywords" content="Systèmes Embarqués, FPGA, STM32, VHDL, ARM Cortex, FreeRTOS, Linux Embarqué, Yocto, Vision, Ingénieur, CDI, IoT, GPS, Bluetooth">
+    <meta name="author" content="Junior MBA">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Junior MBA | Ingénieur Systèmes Embarqués">
+    <meta property="og:description" content="Portfolio - FPGA, STM32, Linux Embarqué, Vision IA">
+    <meta property="og:type" content="website">
+    
+    <title>Junior MBA | Ingénieur Systèmes Embarqués</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Circuit Background Pattern -->
+    <div class="circuit-bg"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-text">Junior MBA.</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">À propos</a></li>
+                <li><a href="#projects" class="nav-link">Projets</a></li>
+                <li><a href="#skills" class="nav-link">Stack</a></li>
+                <li><a href="assets/documents/CV_Junior_MBA.pdf" class="nav-link" target="_blank">CV</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">Contact</a>
+            <button class="nav-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line">Ingénieur</span>
+                <span class="title-line accent">Systèmes Embarqués</span>
+            </h1>
+            <p class="hero-subtitle">
+                Développement embarqué · Conception électronique · FPGA/VHDL · Vision par ordinateur
+            </p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary">
+                    Voir mes projets
+                </a>
+                <div class="hero-status">
+                    <span class="status-dot"></span>
+                    Disponible dès septembre 2026
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i data-lucide="chevron-down" class="icon"></i>
+        </div>
+    </header>
+
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Projets</h2>
+                <p class="section-subtitle">Expériences professionnelles (stages & alternances), projets académiques et projets personnels</p>
+            </div>
+            <div class="projects-grid">
+                
+                <!-- Miecolo - Stage actuel -->
+                <article class="project-card" data-project="miecolo">
+                    <div class="project-image">
+                        <img src="assets/images/miecolo-iot.svg" alt="Miecolo - Système IoT embarqué">
+                    </div>
+                    <div class="project-body">
+                        <div class="project-header">
+                            <div class="project-tags">
+                                <span class="tag emerald">STAGE · IOT EMBARQUÉ</span>
+                            </div>
+                            <span class="project-year">2026</span>
+                        </div>
+                        <h3 class="project-title">Système IoT Multi-Connectivité</h3>
+                        <p class="project-description">
+                            Intégration GPS, 4G, Bluetooth et conception d'alimentation capteurs 
+                            sur plateforme embarquée pour Miecolo.
+                        </p>
+                        <button class="project-btn" onclick="openModal('miecolo')">
+                            Voir les détails <span class="arrow">→</span>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- EcoTrack-Foot -->
+                <article class="project-card" data-project="ecotrack">
+                    <div class="project-image">
+                        <img src="assets/images/ecotrack-foot.svg" alt="EcoTrack-Foot - Vision IA">
+                    </div>
+                    <div class="project-body">
+                        <div class="project-header">
+                            <div class="project-tags">
+                                <span class="tag blue">VISION / IA EMBARQUÉE</span>
+                            </div>
+                            <span class="project-year">2025</span>
+                        </div>
+                        <h3 class="project-title">EcoTrack-Foot</h3>
+                        <p class="project-description">
+                            Système embarqué low-cost de suivi balistique temps réel pour l'analyse 
+                            vidéo de matchs de football amateur.
+                        </p>
+                        <button class="project-btn" onclick="openModal('ecotrack')">
+                            Voir les détails <span class="arrow">→</span>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Simulateur Hélicoptère Gazelle -->
+                <article class="project-card" data-project="gazelle">
+                    <div class="project-image">
+                        <img src="assets/images/simulateur-gazelle.svg" alt="Simulateur Hélicoptère Gazelle">
+                    </div>
+                    <div class="project-body">
+                        <div class="project-header">
+                            <div class="project-tags">
+                                <span class="tag purple">SIMULATION / DÉFENSE</span>
+                            </div>
+                            <span class="project-year">2023</span>
+                        </div>
+                        <h3 class="project-title">Simulateur Hélicoptère Gazelle</h3>
+                        <p class="project-description">
+                            Remise en service complète et modernisation d'un cockpit réel de 
+                            Gazelle pour l'Armée de Terre.
+                        </p>
+                        <button class="project-btn" onclick="openModal('gazelle')">
+                            Voir les détails <span class="arrow">→</span>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Contrôle Moteur Nanométrique -->
+                <article class="project-card" data-project="nanomotor">
+                    <div class="project-image">
+                        <img src="assets/images/nanomotor-control.svg" alt="Contrôle Moteur Nanométrique">
+                    </div>
+                    <div class="project-body">
+                        <div class="project-header">
+                            <div class="project-tags">
+                                <span class="tag orange">INDUSTRIE / TEMPS RÉEL</span>
+                            </div>
+                            <span class="project-year">2022</span>
+                        </div>
+                        <h3 class="project-title">Contrôle Moteur Nanométrique</h3>
+                        <p class="project-description">
+                            Développement logiciel C++ temps réel pour le pilotage de machines 
+                            de métrologie industrielle de haute précision.
+                        </p>
+                        <button class="project-btn" onclick="openModal('nanomotor')">
+                            Voir les détails <span class="arrow">→</span>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Contrôleur VGA sur FPGA -->
+                <article class="project-card" data-project="vga">
+                    <div class="project-image">
+                        <img src="assets/images/vga-controller.svg" alt="Contrôleur VGA FPGA">
+                    </div>
+                    <div class="project-body">
+                        <div class="project-header">
+                            <div class="project-tags">
+                                <span class="tag cyan">FPGA / VHDL</span>
+                            </div>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <h3 class="project-title">Contrôleur VGA sur FPGA</h3>
+                        <p class="project-description">
+                            Conception complète en VHDL d'un contrôleur d'affichage vidéo 
+                            640×480 sans utiliser d'IP propriétaire.
+                        </p>
+                        <button class="project-btn" onclick="openModal('vga')">
+                            Voir les détails <span class="arrow">→</span>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Driver Linux GPIO -->
+                <article class="project-card" data-project="gpio">
+                    <div class="project-image">
+                        <img src="assets/images/linux-gpio-driver.svg" alt="Driver Linux GPIO">
+                    </div>
+                    <div class="project-body">
+                        <div class="project-header">
+                            <div class="project-tags">
+                                <span class="tag red">LINUX KERNEL</span>
+                            </div>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <h3 class="project-title">Driver Linux GPIO</h3>
+                        <p class="project-description">
+                            Écriture d'un module noyau Linux (Character Device) pour la gestion 
+                            performante des entrées/sorties.
+                        </p>
+                        <button class="project-btn" onclick="openModal('gpio')">
+                            Voir les détails <span class="arrow">→</span>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Système Acquisition RTOS -->
+                <article class="project-card" data-project="rtos">
+                    <div class="project-image">
+                        <img src="assets/images/rtos-acquisition.svg" alt="Système RTOS">
+                    </div>
+                    <div class="project-body">
+                        <div class="project-header">
+                            <div class="project-tags">
+                                <span class="tag green">STM32 / FREERTOS</span>
+                            </div>
+                            <span class="project-year">2025</span>
+                        </div>
+                        <h3 class="project-title">Système Acquisition RTOS</h3>
+                        <p class="project-description">
+                            Conception d'un firmware multitâche pour l'acquisition et le 
+                            traitement de données capteurs.
+                        </p>
+                        <button class="project-btn" onclick="openModal('rtos')">
+                            Voir les détails <span class="arrow">→</span>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Filtre Numérique FIR -->
+                <article class="project-card" data-project="fir">
+                    <div class="project-image">
+                        <img src="assets/images/filtre-fir.svg" alt="Filtre FIR">
+                    </div>
+                    <div class="project-body">
+                        <div class="project-header">
+                            <div class="project-tags">
+                                <span class="tag yellow">DSP / SIGNAL</span>
+                            </div>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <h3 class="project-title">Filtre Numérique FIR</h3>
+                        <p class="project-description">
+                            Implémentation et optimisation d'un filtre passe-bas sur 
+                            microcontrôleur à ressources limitées.
+                        </p>
+                        <button class="project-btn" onclick="openModal('fir')">
+                            Voir les détails <span class="arrow">→</span>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Linux From Scratch (Yocto) -->
+                <article class="project-card" data-project="yocto">
+                    <div class="project-image">
+                        <img src="assets/images/linux-yocto.svg" alt="Linux Yocto">
+                    </div>
+                    <div class="project-body">
+                        <div class="project-header">
+                            <div class="project-tags">
+                                <span class="tag teal">LINUX SYSTÈME</span>
+                            </div>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <h3 class="project-title">Linux From Scratch (Yocto)</h3>
+                        <p class="project-description">
+                            Construction d'une distribution Linux sur-mesure optimisée 
+                            pour l'embarqué.
+                        </p>
+                        <button class="project-btn" onclick="openModal('yocto')">
+                            Voir les détails <span class="arrow">→</span>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Station Météo Connectée -->
+                <article class="project-card" data-project="meteo">
+                    <div class="project-image">
+                        <img src="assets/images/station-meteo.svg" alt="Station Météo">
+                    </div>
+                    <div class="project-body">
+                        <div class="project-header">
+                            <div class="project-tags">
+                                <span class="tag pink">PROJET ACMG</span>
+                            </div>
+                            <span class="project-year">2025</span>
+                        </div>
+                        <h3 class="project-title">Station Météo Connectée</h3>
+                        <p class="project-description">
+                            Développement complet d'un système d'acquisition de données 
+                            environnementales.
+                        </p>
+                        <button class="project-btn" onclick="openModal('meteo')">
+                            Voir les détails <span class="arrow">→</span>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Carte Électronique Aquaculture -->
+                <article class="project-card" data-project="aqua">
+                    <div class="project-image">
+                        <img src="assets/images/carte-aquaculture.svg" alt="PCB Aquaculture">
+                    </div>
+                    <div class="project-body">
+                        <div class="project-header">
+                            <div class="project-tags">
+                                <span class="tag indigo">PROJET DREAM</span>
+                            </div>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <h3 class="project-title">Carte Électronique Aquaculture</h3>
+                        <p class="project-description">
+                            Conception, routage et validation d'un PCB multicouche pour 
+                            environnement sévère.
+                        </p>
+                        <button class="project-btn" onclick="openModal('aqua')">
+                            Voir les détails <span class="arrow">→</span>
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Stack Technique</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Langages</h3>
+                    <ul class="skill-list">
+                        <li>C / C++ <span class="skill-level">(Avancé)</span></li>
+                        <li>Python</li>
+                        <li>Java</li>
+                        <li>Rust</li>
+                        <li>VHDL</li>
+                        <li>Bash / Shell</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Système</h3>
+                    <ul class="skill-list">
+                        <li>Linux Embarqué</li>
+                        <li>Yocto Project</li>
+                        <li>FreeRTOS</li>
+                        <li>Drivers Kernel</li>
+                        <li>Raspberry Pi</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Hardware</h3>
+                    <ul class="skill-list">
+                        <li>STM32 (ARM Cortex)</li>
+                        <li>FPGA (Intel/Xilinx)</li>
+                        <li>Conception PCB (Altium)</li>
+                        <li>Bus (I2C, SPI, UART)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Outils & IA</h3>
+                    <ul class="skill-list">
+                        <li>Git / GitHub</li>
+                        <li>OpenCV / TFLite</li>
+                        <li>YOLOv8 / Vision</li>
+                        <li>Matlab / Simulink</li>
+                        <li>ModelSim / Vivado</li>
+                        <li>VS Code / Vim</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title">Contact</h2>
+                <p class="contact-intro">
+                    Actuellement en stage de fin d'études, je suis à la recherche d'un <strong>CDI en systèmes embarqués</strong> 
+                    à partir de septembre 2026.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:votre.email@example.com" class="contact-link">
+                        <i data-lucide="mail" class="icon"></i>
+                        votre.email@example.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/votre-profil" target="_blank" class="contact-link">
+                        <i data-lucide="linkedin" class="icon"></i>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/Root954" target="_blank" class="contact-link">
+                        <i data-lucide="github" class="icon"></i>
+                        GitHub
+                    </a>
+                </div>
+                <a href="assets/documents/CV_Junior_MBA.pdf" class="btn btn-primary" target="_blank">
+                    <i data-lucide="download" class="icon"></i>
+                    Télécharger mon CV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 Junior MBA. Portfolio Ingénieur.</p>
+    </footer>
+
+    <!-- Modal Template -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="modal">
+            <button class="modal-close" onclick="closeModal()">
+                <i data-lucide="x" class="icon"></i>
+            </button>
+            <div class="modal-content" id="modalContent">
+                <!-- Content loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

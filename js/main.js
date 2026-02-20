@@ -1,56 +1,42 @@
-/**
- * Junior MBA Portfolio v3
- */
+document.addEventListener('DOMContentLoaded', function() {
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
 
-document.addEventListener('DOMContentLoaded', () => {
-    initNav();
-    initScrollAnimations();
-    lucide.createIcons();
-});
-
-function initNav() {
-    const toggle = document.getElementById('navToggle');
-    const links = document.querySelector('.nav-links');
-
-    if (toggle) {
-        toggle.addEventListener('click', () => {
-            links.classList.toggle('active');
-            toggle.classList.toggle('active');
+    if (toggle && links) {
+        toggle.addEventListener('click', function() {
+            if (links.style.display === 'flex') {
+                links.style.display = 'none';
+            } else {
+                links.style.display = 'flex';
+            }
         });
     }
 
-    document.querySelectorAll('.nav-links a').forEach(a => {
-        a.addEventListener('click', () => {
-            links.classList.remove('active');
-            toggle.classList.remove('active');
+    // Close menu on link click
+    var navAnchors = document.querySelectorAll('.nav-links a');
+    for (var i = 0; i < navAnchors.length; i++) {
+        navAnchors[i].addEventListener('click', function() {
+            if (window.innerWidth <= 640) {
+                links.style.display = 'none';
+            }
         });
-    });
+    }
 
     // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+    var allAnchors = document.querySelectorAll('a[href^="#"]');
+    for (var j = 0; j < allAnchors.length; j++) {
+        allAnchors[j].addEventListener('click', function(e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            var target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                const offset = 64;
-                const pos = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                window.scrollTo({ top: pos, behavior: 'smooth' });
+                var top = target.getBoundingClientRect().top + window.pageYOffset - 64;
+                window.scrollTo({ top: top, behavior: 'smooth' });
             }
         });
-    });
-}
+    }
 
-function initScrollAnimations() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll('[data-anim], .project-row, .tl-item, .toolbox-card, .education').forEach(el => {
-        observer.observe(el);
-    });
-}
+    // Init lucide icons
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+});

@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Junior MBA — Ingénieur Systèmes Embarqués. FPGA, STM32, Linux Embarqué, Vision IA, IoT.">
     <meta name="author" content="Junior MBA">
-    <meta property="og:title" content="Junior MBA | Ingénieur Systèmes Embarqués">
-    <meta property="og:description" content="Portfolio — Développement embarqué, conception électronique, FPGA/VHDL, vision par ordinateur.">
     <title>Junior MBA | Ingénieur Systèmes Embarqués</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=General+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -21,7 +19,7 @@
     <nav class="navbar" id="navbar">
         <div class="nav-inner">
             <a href="#home" class="nav-logo">JM<span>.</span></a>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Accueil</a></li>
                 <li><a href="#projects">Projets</a></li>
                 <li><a href="#experience">Parcours</a></li>
@@ -38,9 +36,9 @@
     <!-- Marquee -->
     <div class="marquee">
         <div class="marquee-track">
-            <span>DÉVELOPPEMENT EMBARQUÉ · FPGA / VHDL · LINUX KERNEL · VISION PAR ORDINATEUR · STM32 · IOT · CONCEPTION PCB · TEMPS RÉEL · </span>
-            <span>DÉVELOPPEMENT EMBARQUÉ · FPGA / VHDL · LINUX KERNEL · VISION PAR ORDINATEUR · STM32 · IOT · CONCEPTION PCB · TEMPS RÉEL · </span>
-            <span>DÉVELOPPEMENT EMBARQUÉ · FPGA / VHDL · LINUX KERNEL · VISION PAR ORDINATEUR · STM32 · IOT · CONCEPTION PCB · TEMPS RÉEL · </span>
+            <span>DÉVELOPPEMENT EMBARQUÉ &nbsp;·&nbsp; FPGA / VHDL &nbsp;·&nbsp; LINUX KERNEL &nbsp;·&nbsp; VISION PAR ORDINATEUR &nbsp;·&nbsp; STM32 &nbsp;·&nbsp; IOT &nbsp;·&nbsp; CONCEPTION PCB &nbsp;·&nbsp; TEMPS RÉEL &nbsp;·&nbsp;&nbsp;</span>
+            <span>DÉVELOPPEMENT EMBARQUÉ &nbsp;·&nbsp; FPGA / VHDL &nbsp;·&nbsp; LINUX KERNEL &nbsp;·&nbsp; VISION PAR ORDINATEUR &nbsp;·&nbsp; STM32 &nbsp;·&nbsp; IOT &nbsp;·&nbsp; CONCEPTION PCB &nbsp;·&nbsp; TEMPS RÉEL &nbsp;·&nbsp;&nbsp;</span>
+            <span>DÉVELOPPEMENT EMBARQUÉ &nbsp;·&nbsp; FPGA / VHDL &nbsp;·&nbsp; LINUX KERNEL &nbsp;·&nbsp; VISION PAR ORDINATEUR &nbsp;·&nbsp; STM32 &nbsp;·&nbsp; IOT &nbsp;·&nbsp; CONCEPTION PCB &nbsp;·&nbsp; TEMPS RÉEL &nbsp;·&nbsp;&nbsp;</span>
         </div>
     </div>
 
@@ -68,210 +66,180 @@
             <p class="section-sub">Expériences professionnelles, projets académiques et projets personnels.</p>
 
             <!-- Miecolo -->
-            <article class="project-row" data-anim>
+            <article class="project-row">
                 <div class="project-info">
                     <div class="project-date">Fév. 2026 — En cours<br><span class="project-context">Stage de fin d'études</span></div>
                     <h3 class="project-title">Système IoT Multi-Connectivité</h3>
                     <p class="project-company">Miecolo</p>
                     <p class="project-desc">Intégration et configuration d'un module GPS Telit, stabilisation de la connexion 4G, conception d'un générateur ±20V/24V, développement Bluetooth, et implémentation firmware embarqué.</p>
-                    <div class="project-tags">
-                        <span>C</span><span>GPS Telit</span><span>4G LTE</span><span>Bluetooth</span><span>Power Design</span><span>UART/SPI/I2C</span>
-                    </div>
+                    <div class="project-tags"><span>C</span><span>GPS Telit</span><span>4G LTE</span><span>Bluetooth</span><span>Power Design</span><span>UART/SPI/I2C</span></div>
                 </div>
                 <div class="project-visual gradient-miecolo">
-                    <div class="visual-icon"><i data-lucide="radio" class="icon"></i></div>
-                    <span class="visual-label">GPS · 4G · BLE · Power</span>
+                    <div class="visual-inner"><i data-lucide="radio" class="vis-icon"></i><span class="visual-label">GPS · 4G · BLE · Power</span></div>
                 </div>
             </article>
 
             <!-- EcoTrack-Foot -->
-            <article class="project-row reverse" data-anim>
+            <article class="project-row row-reverse">
                 <div class="project-info">
                     <div class="project-date">2025<br><span class="project-context">Projet de fin d'études</span></div>
                     <h3 class="project-title">EcoTrack-Foot</h3>
                     <p class="project-company">Projet académique</p>
                     <p class="project-desc">Système embarqué low-cost de suivi balistique temps réel pour l'analyse vidéo de matchs de football amateur. Pipeline asynchrone YOLOv8 + Kalman sur Raspberry Pi 5.</p>
-                    <div class="project-tags">
-                        <span>Python</span><span>YOLOv8</span><span>OpenCV</span><span>TFLite</span><span>Kalman</span><span>RPi 5</span>
-                    </div>
+                    <div class="project-tags"><span>Python</span><span>YOLOv8</span><span>OpenCV</span><span>TFLite</span><span>Kalman</span><span>RPi 5</span></div>
                 </div>
                 <div class="project-visual gradient-ecotrack">
-                    <div class="visual-icon"><i data-lucide="scan-eye" class="icon"></i></div>
-                    <span class="visual-label">≥25 FPS · Recall >85% · <150€</span>
+                    <div class="visual-inner"><i data-lucide="scan-eye" class="vis-icon"></i><span class="visual-label">≥25 FPS · Recall >85% · &lt;150€</span></div>
                 </div>
             </article>
 
             <!-- Gazelle -->
-            <article class="project-row" data-anim>
+            <article class="project-row">
                 <div class="project-info">
                     <div class="project-date">2023<br><span class="project-context">Alternance</span></div>
                     <h3 class="project-title">Simulateur Hélicoptère Gazelle</h3>
                     <p class="project-company">Armée de Terre</p>
                     <p class="project-desc">Remise en service et modernisation d'un cockpit réel de Gazelle SA 342. Rétro-ingénierie des protocoles avioniques (ARINC 429, RS-422), intégration d'interfaces numériques.</p>
-                    <div class="project-tags">
-                        <span>C/C++</span><span>ARINC 429</span><span>RS-422</span><span>Avionique</span><span>Temps Réel</span>
-                    </div>
+                    <div class="project-tags"><span>C/C++</span><span>ARINC 429</span><span>RS-422</span><span>Avionique</span><span>Temps Réel</span></div>
                 </div>
-                <div class="project-visual">
-                    <img src="assets/images/gazelle-simulator.jpg" alt="Simulateur Gazelle" loading="lazy">
+                <div class="project-visual project-visual-img">
+                    <img src="assets/images/gazelle-simulator.jpg" alt="Simulateur Gazelle">
                 </div>
             </article>
 
             <!-- Nanomotor -->
-            <article class="project-row reverse" data-anim>
+            <article class="project-row row-reverse">
                 <div class="project-info">
                     <div class="project-date">2022<br><span class="project-context">Stage</span></div>
                     <h3 class="project-title">Contrôle Moteur Nanométrique</h3>
                     <p class="project-company">Industrial Metrology Solutions</p>
-                    <p class="project-desc">Développement logiciel C++ temps réel pour le pilotage de machines de métrologie haute précision. Boucle de contrôle <1ms, positionnement nanométrique.</p>
-                    <div class="project-tags">
-                        <span>C++17</span><span>Qt</span><span>EtherCAT</span><span>PID</span><span>Multi-threading</span>
-                    </div>
+                    <p class="project-desc">Développement logiciel C++ temps réel pour le pilotage de machines de métrologie haute précision. Boucle de contrôle &lt;1ms, positionnement nanométrique.</p>
+                    <div class="project-tags"><span>C++17</span><span>Qt</span><span>EtherCAT</span><span>PID</span><span>Multi-threading</span></div>
                 </div>
-                <div class="project-visual">
-                    <img src="assets/images/zerotouch-machine.png" alt="Machine ZeroTouch" loading="lazy">
+                <div class="project-visual project-visual-img">
+                    <img src="assets/images/zerotouch-machine.png" alt="Machine ZeroTouch">
                 </div>
             </article>
 
             <!-- VGA -->
-            <article class="project-row" data-anim>
+            <article class="project-row">
                 <div class="project-info">
                     <div class="project-date">2024<br><span class="project-context">Académique</span></div>
                     <h3 class="project-title">Contrôleur VGA sur FPGA</h3>
                     <p class="project-company">Projet universitaire</p>
                     <p class="project-desc">Conception complète en VHDL d'un contrôleur d'affichage 640×480@60Hz sans IP propriétaire. Architecture RTL modulaire sur Basys3 Artix-7.</p>
-                    <div class="project-tags">
-                        <span>VHDL</span><span>Vivado</span><span>Basys3</span><span>Artix-7</span><span>ModelSim</span>
-                    </div>
+                    <div class="project-tags"><span>VHDL</span><span>Vivado</span><span>Basys3</span><span>Artix-7</span><span>ModelSim</span></div>
                 </div>
-                <div class="project-visual">
-                    <img src="assets/images/vga-architecture.png" alt="Architecture VGA" loading="lazy">
+                <div class="project-visual project-visual-img">
+                    <img src="assets/images/vga-architecture.png" alt="Architecture VGA">
                 </div>
             </article>
 
-            <!-- FIR Filter -->
-            <article class="project-row reverse" data-anim>
+            <!-- FIR -->
+            <article class="project-row row-reverse">
                 <div class="project-info">
                     <div class="project-date">2024<br><span class="project-context">Académique</span></div>
                     <h3 class="project-title">Filtre Numérique FIR</h3>
                     <p class="project-company">Projet universitaire</p>
                     <p class="project-desc">Implémentation et optimisation d'un filtre passe-bas sur Cortex-M4. Virgule fixe Q15, instructions DSP SIMD, buffer circulaire.</p>
-                    <div class="project-tags">
-                        <span>C</span><span>CMSIS-DSP</span><span>ARM Cortex-M4</span><span>MATLAB</span><span>Fixed-Point</span>
-                    </div>
+                    <div class="project-tags"><span>C</span><span>CMSIS-DSP</span><span>ARM Cortex-M4</span><span>MATLAB</span><span>Fixed-Point</span></div>
                 </div>
-                <div class="project-visual">
-                    <img src="assets/images/fir-filter-result.png" alt="Résultat Filtre FIR" loading="lazy">
+                <div class="project-visual project-visual-img">
+                    <img src="assets/images/fir-filter-result.png" alt="Résultat Filtre FIR">
                 </div>
             </article>
 
-            <!-- GPIO Driver -->
-            <article class="project-row" data-anim>
+            <!-- GPIO -->
+            <article class="project-row">
                 <div class="project-info">
                     <div class="project-date">2024<br><span class="project-context">Académique</span></div>
                     <h3 class="project-title">Driver Linux GPIO</h3>
                     <p class="project-company">Projet universitaire</p>
                     <p class="project-desc">Module noyau Linux (Character Device Driver) — file operations, interruptions GPIO, interface sysfs, gestion propre des ressources.</p>
-                    <div class="project-tags">
-                        <span>C</span><span>Linux Kernel</span><span>Device Drivers</span><span>GPIO</span><span>Interrupts</span>
-                    </div>
+                    <div class="project-tags"><span>C</span><span>Linux Kernel</span><span>Device Drivers</span><span>GPIO</span><span>Interrupts</span></div>
                 </div>
                 <div class="project-visual gradient-gpio">
-                    <div class="visual-icon"><i data-lucide="terminal" class="icon"></i></div>
-                    <span class="visual-label">insmod gpio_driver.ko</span>
+                    <div class="visual-inner"><i data-lucide="terminal" class="vis-icon"></i><span class="visual-label">insmod gpio_driver.ko</span></div>
                 </div>
             </article>
 
             <!-- RTOS -->
-            <article class="project-row reverse" data-anim>
+            <article class="project-row row-reverse">
                 <div class="project-info">
                     <div class="project-date">2025<br><span class="project-context">Académique</span></div>
                     <h3 class="project-title">Système Acquisition RTOS</h3>
                     <p class="project-company">Projet universitaire</p>
                     <p class="project-desc">Firmware multitâche STM32 + FreeRTOS. Architecture producteur-consommateur, queues, mutex, semaphores, watchdog.</p>
-                    <div class="project-tags">
-                        <span>STM32</span><span>FreeRTOS</span><span>C</span><span>HAL</span><span>ADC/DMA</span>
-                    </div>
+                    <div class="project-tags"><span>STM32</span><span>FreeRTOS</span><span>C</span><span>HAL</span><span>ADC/DMA</span></div>
                 </div>
                 <div class="project-visual gradient-rtos">
-                    <div class="visual-icon"><i data-lucide="cpu" class="icon"></i></div>
-                    <span class="visual-label">FreeRTOS · Multi-tâches</span>
+                    <div class="visual-inner"><i data-lucide="cpu" class="vis-icon"></i><span class="visual-label">FreeRTOS · Multi-tâches</span></div>
                 </div>
             </article>
 
             <!-- Yocto -->
-            <article class="project-row" data-anim>
+            <article class="project-row">
                 <div class="project-info">
                     <div class="project-date">2024<br><span class="project-context">Académique</span></div>
                     <h3 class="project-title">Linux From Scratch (Yocto)</h3>
                     <p class="project-company">Projet universitaire</p>
                     <p class="project-desc">Distribution Linux sur-mesure avec Yocto Project. BSP ARM, layers custom, recettes BitBake, image rootfs optimisée 8.2MB.</p>
-                    <div class="project-tags">
-                        <span>Yocto</span><span>BitBake</span><span>Linux</span><span>Shell</span><span>Cross-compilation</span>
-                    </div>
+                    <div class="project-tags"><span>Yocto</span><span>BitBake</span><span>Linux</span><span>Shell</span><span>Cross-compilation</span></div>
                 </div>
                 <div class="project-visual gradient-yocto">
-                    <div class="visual-icon"><i data-lucide="hard-drive" class="icon"></i></div>
-                    <span class="visual-label">bitbake core-image-minimal</span>
+                    <div class="visual-inner"><i data-lucide="hard-drive" class="vis-icon"></i><span class="visual-label">bitbake core-image-minimal</span></div>
                 </div>
             </article>
 
             <!-- Météo -->
-            <article class="project-row reverse" data-anim>
+            <article class="project-row row-reverse">
                 <div class="project-info">
                     <div class="project-date">2025<br><span class="project-context">Stage ACMG</span></div>
                     <h3 class="project-title">Station Météo Connectée</h3>
                     <p class="project-company">ACMG</p>
                     <p class="project-desc">Système d'acquisition de données environnementales multi-capteurs avec transmission cloud WiFi/LoRa et dashboard de visualisation.</p>
-                    <div class="project-tags">
-                        <span>ESP32</span><span>I2C/SPI</span><span>MQTT</span><span>InfluxDB</span><span>LoRa</span>
-                    </div>
+                    <div class="project-tags"><span>ESP32</span><span>I2C/SPI</span><span>MQTT</span><span>InfluxDB</span><span>LoRa</span></div>
                 </div>
                 <div class="project-visual gradient-meteo">
-                    <div class="visual-icon"><i data-lucide="cloud-sun" class="icon"></i></div>
-                    <span class="visual-label">ESP32 · MQTT · Cloud</span>
+                    <div class="visual-inner"><i data-lucide="cloud-sun" class="vis-icon"></i><span class="visual-label">ESP32 · MQTT · Cloud</span></div>
                 </div>
             </article>
 
             <!-- Aquaculture -->
-            <article class="project-row" data-anim>
+            <article class="project-row">
                 <div class="project-info">
                     <div class="project-date">2024<br><span class="project-context">Stage DREAM Électronique</span></div>
                     <h3 class="project-title">Carte Électronique Aquaculture</h3>
                     <p class="project-company">DREAM Électronique</p>
-                    <p class="project-desc">Conception, routage et validation d'un PCB 4 couches pour environnement sévère (humidité, salinité). Protection IP67, conformité normes aquatiques.</p>
-                    <div class="project-tags">
-                        <span>Altium</span><span>PCB 4L</span><span>EMC</span><span>Power Supply</span><span>STM32</span>
-                    </div>
+                    <p class="project-desc">Conception, routage et validation d'un PCB 4 couches pour environnement sévère (humidité, salinité). Protection IP67.</p>
+                    <div class="project-tags"><span>Altium</span><span>PCB 4L</span><span>EMC</span><span>Power Supply</span><span>STM32</span></div>
                 </div>
                 <div class="project-visual gradient-aqua">
-                    <div class="visual-icon"><i data-lucide="circuit-board" class="icon"></i></div>
-                    <span class="visual-label">Altium · PCB · IP67</span>
+                    <div class="visual-inner"><i data-lucide="circuit-board" class="vis-icon"></i><span class="visual-label">Altium · PCB · IP67</span></div>
                 </div>
             </article>
-
         </div>
     </section>
 
     <!-- Gallery -->
-    <section class="section gallery-section">
+    <section class="section section-alt">
         <div class="container">
             <h2 class="section-heading">Sur le terrain</h2>
             <div class="gallery">
                 <div class="gallery-item gi-large">
-                    <img src="assets/images/gazelle-simulator.jpg" alt="Cockpit simulateur Gazelle" loading="lazy">
+                    <img src="assets/images/gazelle-simulator.jpg" alt="Cockpit simulateur Gazelle">
                     <div class="gi-caption">Simulateur Gazelle — cockpit opérationnel</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/images/gazelle-helicopter.jpg" alt="Gazelle SA 342" loading="lazy">
+                    <img src="assets/images/gazelle-helicopter.jpg" alt="Gazelle SA 342">
                     <div class="gi-caption">Gazelle SA 342 — Armée de Terre</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/images/gazelle-cockpit.jpg" alt="Cockpit plateforme" loading="lazy">
+                    <img src="assets/images/gazelle-cockpit.jpg" alt="Cockpit plateforme">
                     <div class="gi-caption">Cockpit monté sur plateforme</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/images/zerotouch-machine.png" alt="ZeroTouch" loading="lazy">
+                    <img src="assets/images/zerotouch-machine.png" alt="ZeroTouch">
                     <div class="gi-caption">ZeroTouch® — métrologie nanométrique</div>
                 </div>
             </div>
@@ -283,31 +251,39 @@
         <div class="container">
             <h2 class="section-heading">Parcours</h2>
             <div class="timeline">
-                <div class="tl-item" data-anim>
-                    <div class="tl-date">Fév. 2026 — Juil. 2026</div>
+                <div class="tl-item">
+                    <div class="tl-date">Fév. — Juil. 2026</div>
                     <div class="tl-content">
                         <h3>Stagiaire Systèmes Embarqués</h3>
                         <p class="tl-company">Miecolo · Bordeaux</p>
-                        <p>Intégration GPS/4G/Bluetooth, conception alimentation ±20V/24V, firmware embarqué, tests fonctionnels.</p>
+                        <p>Intégration GPS/4G/Bluetooth, conception alimentation ±20V/24V, firmware embarqué.</p>
                     </div>
                 </div>
-                <div class="tl-item" data-anim>
+                <div class="tl-item">
                     <div class="tl-date">2025</div>
                     <div class="tl-content">
                         <h3>Stagiaire Logiciel Embarqué</h3>
                         <p class="tl-company">ACMG</p>
-                        <p>Développement d'un système d'acquisition de données environnementales. Station météo connectée ESP32.</p>
+                        <p>Station météo connectée ESP32, acquisition de données environnementales.</p>
                     </div>
                 </div>
-                <div class="tl-item" data-anim>
+                <div class="tl-item">
                     <div class="tl-date">2024</div>
                     <div class="tl-content">
                         <h3>Stagiaire Conception Électronique</h3>
                         <p class="tl-company">DREAM Électronique</p>
-                        <p>Conception PCB multicouche pour systèmes aquacoles en environnement sévère. Altium Designer.</p>
+                        <p>Conception PCB multicouche pour systèmes aquacoles. Altium Designer.</p>
                     </div>
                 </div>
-                <div class="tl-item" data-anim>
+                <div class="tl-item">
+                    <div class="tl-date">2023</div>
+                    <div class="tl-content">
+                        <h3>Alternance — Simulateur Gazelle</h3>
+                        <p class="tl-company">Centre de simulation · Armée de Terre</p>
+                        <p>Remise en service cockpit Gazelle SA 342. Rétro-ingénierie avionique.</p>
+                    </div>
+                </div>
+                <div class="tl-item">
                     <div class="tl-date">2022</div>
                     <div class="tl-content">
                         <h3>Stagiaire Développement Logiciel</h3>
@@ -315,50 +291,33 @@
                         <p>Logiciel C++ temps réel pour métrologie nanométrique. Machine ZeroTouch®.</p>
                     </div>
                 </div>
-                <div class="tl-item" data-anim>
-                    <div class="tl-date">2023</div>
-                    <div class="tl-content">
-                        <h3>Alternance — Simulateur Gazelle</h3>
-                        <p class="tl-company">Centre de simulation · Armée de Terre</p>
-                        <p>Remise en service cockpit Gazelle SA 342. Rétro-ingénierie avionique, intégration interfaces.</p>
-                    </div>
-                </div>
             </div>
-            <div class="education" data-anim>
+            <div class="education">
                 <h3 class="edu-title">Formation</h3>
-                <div class="edu-items">
-                    <div class="edu-item">
-                        <span class="edu-year">2025 — 2026</span>
-                        <div>
-                            <strong>Master 2 Systèmes Embarqués</strong>
-                            <p>Evering / Université de Bordeaux — IMSAT/ISE</p>
-                        </div>
-                    </div>
-                    <div class="edu-item">
-                        <span class="edu-year">2019 — 2024</span>
-                        <div>
-                            <strong>Diplôme d'Ingénieur — Major de promotion</strong>
-                            <p>ESEO Angers — Électronique & Informatique</p>
-                        </div>
-                    </div>
+                <div class="edu-item">
+                    <span class="edu-year">2025 — 2026</span>
+                    <div><strong>Master 2 Systèmes Embarqués</strong><p>Evering / Université de Bordeaux — IMSAT/ISE</p></div>
+                </div>
+                <div class="edu-item">
+                    <span class="edu-year">2019 — 2024</span>
+                    <div><strong>Diplôme d'Ingénieur — Major de promotion</strong><p>ESEO Angers — Électronique & Informatique</p></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Toolbox -->
-    <section class="section toolbox-section" id="toolbox">
+    <section class="section section-alt" id="toolbox">
         <div class="container">
-            <!-- Scrolling label -->
             <div class="toolbox-marquee">
                 <div class="toolbox-marquee-track">
-                    <span>TOOLBOX · SKILLS · EXPERTISE · TOOLBOX · SKILLS · EXPERTISE · TOOLBOX · SKILLS · EXPERTISE · </span>
-                    <span>TOOLBOX · SKILLS · EXPERTISE · TOOLBOX · SKILLS · EXPERTISE · TOOLBOX · SKILLS · EXPERTISE · </span>
+                    <span>TOOLBOX · SKILLS · EXPERTISE · TOOLBOX · SKILLS · EXPERTISE · TOOLBOX · SKILLS · EXPERTISE ·&nbsp;</span>
+                    <span>TOOLBOX · SKILLS · EXPERTISE · TOOLBOX · SKILLS · EXPERTISE · TOOLBOX · SKILLS · EXPERTISE ·&nbsp;</span>
                 </div>
             </div>
             <h2 class="section-heading">Stack Technique</h2>
             <div class="toolbox-grid">
-                <div class="toolbox-card" data-anim>
+                <div class="toolbox-card">
                     <h3>Langages</h3>
                     <p class="toolbox-subtitle">Développement</p>
                     <ul>
@@ -367,10 +326,10 @@
                         <li><span class="tool-name">VHDL</span><span class="tool-level intermediate">Intermédiaire</span></li>
                         <li><span class="tool-name">Java</span><span class="tool-level intermediate">Intermédiaire</span></li>
                         <li><span class="tool-name">Rust</span><span class="tool-level basic">Notions</span></li>
-                        <li><span class="tool-name">Bash / Shell</span><span class="tool-level intermediate">Intermédiaire</span></li>
+                        <li><span class="tool-name">Bash</span><span class="tool-level intermediate">Intermédiaire</span></li>
                     </ul>
                 </div>
-                <div class="toolbox-card" data-anim>
+                <div class="toolbox-card">
                     <h3>Système</h3>
                     <p class="toolbox-subtitle">OS & RTOS</p>
                     <ul>
@@ -381,17 +340,17 @@
                         <li><span class="tool-name">Raspberry Pi</span><span class="tool-level advanced">Avancé</span></li>
                     </ul>
                 </div>
-                <div class="toolbox-card" data-anim>
+                <div class="toolbox-card">
                     <h3>Hardware</h3>
                     <p class="toolbox-subtitle">Électronique & FPGA</p>
                     <ul>
                         <li><span class="tool-name">STM32 (Cortex-M)</span><span class="tool-level advanced">Avancé</span></li>
-                        <li><span class="tool-name">FPGA (Xilinx/Intel)</span><span class="tool-level intermediate">Intermédiaire</span></li>
-                        <li><span class="tool-name">PCB (Altium/KiCad)</span><span class="tool-level intermediate">Intermédiaire</span></li>
+                        <li><span class="tool-name">FPGA Xilinx/Intel</span><span class="tool-level intermediate">Intermédiaire</span></li>
+                        <li><span class="tool-name">PCB Altium/KiCad</span><span class="tool-level intermediate">Intermédiaire</span></li>
                         <li><span class="tool-name">I2C, SPI, UART</span><span class="tool-level advanced">Avancé</span></li>
                     </ul>
                 </div>
-                <div class="toolbox-card" data-anim>
+                <div class="toolbox-card">
                     <h3>Outils</h3>
                     <p class="toolbox-subtitle">Dev & IA</p>
                     <ul>
@@ -407,8 +366,8 @@
     </section>
 
     <!-- Contact -->
-    <section class="section contact-section" id="contact">
-        <div class="container">
+    <section class="section" id="contact">
+        <div class="container contact-center">
             <h2 class="section-heading">Contact</h2>
             <p class="contact-intro">Actuellement en stage de fin d'études, je suis à la recherche d'un <strong>CDI en systèmes embarqués</strong> à partir de septembre 2026.</p>
             <p class="contact-open">Ouvert aux opportunités, collaborations et échanges.</p>
@@ -427,8 +386,7 @@
                 </a>
             </div>
             <a href="assets/documents/CV_Junior_MBA.pdf" class="btn-download" target="_blank">
-                <i data-lucide="download" class="icon"></i>
-                Télécharger mon CV
+                <i data-lucide="download" class="icon"></i> Télécharger mon CV
             </a>
         </div>
     </section>

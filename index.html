@@ -3,431 +3,606 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Junior MBA — Ingénieur Systèmes Embarqués. FPGA, STM32, Linux, Vision IA, IoT.">
     <title>Junior MBA | Ingénieur Systèmes Embarqués</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f9f9f9;
+            --text: #111111;
+            --text-muted: #666666;
+            --border: #dddddd;
+            --spacing: 5vw;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: inherit; text-decoration: none; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed; top: 0; width: 100%;
+            padding: 1.5rem var(--spacing);
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(249, 249, 249, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+        .logo { font-weight: 600; font-size: 1.2rem; letter-spacing: -0.5px; }
+        .nav-links a {
+            margin-left: 2rem; font-size: 0.9rem; font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--text-muted); }
+
+        /* --- LAYOUT --- */
+        section {
+            padding: 8rem var(--spacing) 4rem var(--spacing);
+            max-width: 1400px; margin: 0 auto;
+        }
+        h1, h2, h3 { font-weight: 500; letter-spacing: -0.02em; }
+        .section-title {
+            font-size: 1rem; text-transform: uppercase;
+            letter-spacing: 2px; color: var(--text-muted);
+            margin-bottom: 1rem; border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+        }
+        .section-note {
+            font-size: 0.88rem; color: var(--text-muted); margin-bottom: 3rem;
+            font-style: italic; line-height: 1.6;
+        }
+
+        /* --- HERO --- */
+        .hero {
+            min-height: 90vh; display: flex;
+            flex-direction: column; justify-content: center;
+        }
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 6rem);
+            line-height: 1.1; margin-bottom: 1.5rem;
+        }
+        .hero p {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            color: var(--text-muted); max-width: 800px; margin-bottom: 2rem;
+        }
+        .status-badge {
+            display: inline-flex; align-items: center;
+            padding: 0.5rem 1rem; border: 1px solid var(--border);
+            border-radius: 50px; font-size: 0.9rem;
+        }
+        .status-dot {
+            width: 8px; height: 8px; background-color: #10b981;
+            border-radius: 50%; margin-right: 10px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(16,185,129,0.4); }
+            70% { box-shadow: 0 0 0 6px rgba(16,185,129,0); }
+            100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+        }
+
+        /* --- EXPERIENCE --- */
+        .list-item {
+            display: grid; grid-template-columns: 1fr 3fr;
+            gap: 2rem; padding: 2rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .list-date { color: var(--text-muted); font-size: 0.95rem; }
+        .list-content h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .list-content h4 {
+            font-size: 1.1rem; color: var(--text-muted);
+            font-weight: 400; margin-bottom: 1rem;
+        }
+        .list-content ul { list-style-position: inside; color: var(--text-muted); }
+        .list-content li { margin-bottom: 0.5rem; }
+
+        /* --- PROJECTS --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 3rem 2rem;
+        }
+        .project-card { cursor: pointer; }
+        .project-img {
+            width: 100%; aspect-ratio: 4/3;
+            background-color: #eee; margin-bottom: 1rem;
+            overflow: hidden; border-radius: 4px;
+            position: relative;
+        }
+        .project-img img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .project-card:hover .project-img img { transform: scale(1.03); }
+        .project-img .cat-badge {
+            position: absolute; top: 12px; left: 12px;
+            font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 1px; padding: 4px 10px;
+            border-radius: 3px; z-index: 2;
+        }
+        .cat-pro { background: #111; color: #fff; }
+        .cat-acad { background: #2563eb; color: #fff; }
+        .cat-perso { background: #059669; color: #fff; }
+
+        .project-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .project-card p {
+            color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;
+        }
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .tag {
+            font-size: 0.75rem; padding: 0.3rem 0.8rem;
+            border: 1px solid var(--border); border-radius: 4px;
+            color: var(--text-muted);
+        }
+
+        /* Gradient placeholders for projects without photos */
+        .grad-placeholder {
+            width: 100%; height: 100%;
+            display: flex; align-items: flex-end; padding: 16px;
+            font-size: 0.8rem; color: rgba(255,255,255,0.7);
+            font-weight: 500;
+        }
+        .gp-blue { background: linear-gradient(135deg, #1e3a5f, #3b82f6); }
+        .gp-green { background: linear-gradient(135deg, #14532d, #22c55e); }
+        .gp-red { background: linear-gradient(135deg, #450a0a, #ef4444); }
+        .gp-emerald { background: linear-gradient(135deg, #064e3b, #10b981); }
+        .gp-teal { background: linear-gradient(135deg, #134e4a, #14b8a6); }
+        .gp-purple { background: linear-gradient(135deg, #3b0764, #a855f7); }
+        .gp-indigo { background: linear-gradient(135deg, #312e81, #818cf8); }
+        .gp-cyan { background: linear-gradient(135deg, #164e63, #06b6d4); }
+        .gp-orange { background: linear-gradient(135deg, #7c2d12, #f97316); }
+        .gp-amber { background: linear-gradient(135deg, #78350f, #f59e0b); }
+
+        /* --- MODAL --- */
+        .modal-overlay {
+            position: fixed; inset: 0; z-index: 200;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            display: none; align-items: center; justify-content: center;
+            padding: 24px;
+        }
+        .modal-overlay.open { display: flex; }
+        .modal {
+            background: #fff; border-radius: 12px;
+            max-width: 900px; width: 100%;
+            max-height: 88vh; overflow-y: auto;
+            padding: 48px; position: relative;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        .modal-close {
+            position: absolute; top: 16px; right: 20px;
+            font-size: 1.5rem; color: #999; cursor: pointer;
+            border: none; background: none;
+            transition: color 0.2s;
+        }
+        .modal-close:hover { color: #111; }
+        .modal h2 {
+            font-size: 1.6rem; font-weight: 500; margin-bottom: 4px;
+        }
+        .modal .m-meta {
+            display: flex; gap: 10px; align-items: center;
+            margin-bottom: 28px; flex-wrap: wrap;
+        }
+        .m-badge {
+            font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 1px; padding: 3px 10px; border-radius: 3px;
+        }
+        .m-year { font-size: 0.85rem; color: var(--text-muted); }
+        .modal h3 {
+            font-size: 1.05rem; font-weight: 600;
+            color: var(--text); margin: 24px 0 8px;
+            text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;
+        }
+        .modal p {
+            font-size: 0.92rem; color: #444; line-height: 1.7; margin-bottom: 8px;
+        }
+        .modal ul { padding-left: 20px; margin-bottom: 14px; }
+        .modal li {
+            list-style: disc; font-size: 0.9rem; color: #444;
+            line-height: 1.6; margin-bottom: 4px;
+        }
+        .m-highlight {
+            background: #f0f7ff; border-left: 3px solid #2563eb;
+            padding: 14px 16px; border-radius: 0 8px 8px 0; margin: 16px 0;
+        }
+        .m-highlight p { margin: 0; color: #1e40af; font-weight: 500; }
+        .m-imgs {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 8px; margin: 16px 0;
+        }
+        .m-imgs img {
+            border-radius: 6px; width: 100%; height: 180px;
+            object-fit: cover; border: 1px solid #eee;
+        }
+        .m-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+        .m-chips span {
+            font-size: 0.75rem; font-weight: 500;
+            padding: 4px 12px; border-radius: 4px;
+            background: #f3f4f6; color: #555;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 4rem var(--spacing);
+            border-top: 1px solid var(--border);
+            display: flex; justify-content: space-between;
+            color: var(--text-muted); font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .list-item { grid-template-columns: 1fr; gap: 0.5rem; }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .modal { padding: 28px; }
+            .m-imgs { grid-template-columns: 1fr 1fr; }
+            .m-imgs img { height: 140px; }
+            footer { flex-direction: column; gap: 1rem; }
+        }
+    </style>
 </head>
 <body>
 
-<!-- Navbar -->
-<nav id="navbar">
-    <div class="nav-inner">
-        <a href="#home" class="logo">JM</a>
-        <div class="nav-links" id="navLinks">
-            <a href="#home">Accueil</a>
-            <a href="#projects">Projets</a>
-            <a href="#experience">Parcours</a>
-            <a href="#toolbox">Stack</a>
-            <a href="#contact">Contact</a>
-        </div>
-        <button class="hamburger" id="hamburger" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
-        </button>
+<nav>
+    <div class="logo">JUNIOR MBA</div>
+    <div class="nav-links">
+        <a href="#about">Profil</a>
+        <a href="#experience">Parcours</a>
+        <a href="#projects">Projets</a>
+        <a href="#education">Formation</a>
+        <a href="mailto:juniormba.pro@hotmail.com">Contact</a>
     </div>
 </nav>
 
-<!-- Marquee -->
-<div class="marquee">
-    <div class="marquee-track">
-        <span>DÉVELOPPEMENT EMBARQUÉ &middot; FPGA / VHDL &middot; LINUX KERNEL &middot; VISION PAR ORDINATEUR &middot; STM32 &middot; IOT &middot; CONCEPTION PCB &middot; TEMPS RÉEL &middot;&nbsp;</span>
-        <span>DÉVELOPPEMENT EMBARQUÉ &middot; FPGA / VHDL &middot; LINUX KERNEL &middot; VISION PAR ORDINATEUR &middot; STM32 &middot; IOT &middot; CONCEPTION PCB &middot; TEMPS RÉEL &middot;&nbsp;</span>
-        <span>DÉVELOPPEMENT EMBARQUÉ &middot; FPGA / VHDL &middot; LINUX KERNEL &middot; VISION PAR ORDINATEUR &middot; STM32 &middot; IOT &middot; CONCEPTION PCB &middot; TEMPS RÉEL &middot;&nbsp;</span>
+<section class="hero" id="about">
+    <h1>Ingénieur en Systèmes Embarqués.</h1>
+    <p>2 ans d'expérience en développement firmware, déploiement de modèles IA sur cibles embarquées et conception électronique. À la recherche d'un CDI, mobile sur toute la France.</p>
+    <div>
+        <div class="status-badge">
+            <span class="status-dot"></span> Disponible pour de nouvelles opportunités
+        </div>
     </div>
-</div>
-
-<!-- Hero -->
-<section class="hero" id="home">
-    <div class="hero-center">
-        <h2 class="hero-sub">Junior MBA</h2>
-        <p class="hero-degree">M2 Systèmes Embarqués &middot; Evering / Université de Bordeaux</p>
-        <div class="hero-avail"><span class="dot"></span> Disponible dès septembre 2026</div>
-    </div>
-    <div class="scroll-cue"><span>Scroll</span><div class="scroll-bar"></div></div>
 </section>
 
-<!-- ======================== PROJECTS ======================== -->
-<section class="section" id="projects">
-    <div class="container">
+<section id="experience">
+    <h2 class="section-title">Expériences Professionnelles</h2>
 
-        <h2 class="cat-title">Projets Professionnels</h2>
+    <div class="list-item">
+        <div class="list-date">Janvier - Juin 2025</div>
+        <div class="list-content">
+            <h3>Stagiaire ingénieur logiciel embarqué</h3>
+            <h4>ACMG, Sainte-Colombe-en-Bruilhois</h4>
+            <ul>
+                <li>Développement C sur STM32 d'un système d'acquisition de données environnementales connecté.</li>
+                <li>Implémentation de drivers bas niveau (UART, I2C, SPI) pour l'interfaçage de capteurs industriels.</li>
+                <li>Tests applicatifs et validation logicielle sur banc et en conditions terrain.</li>
+            </ul>
+        </div>
+    </div>
 
-        <!-- Miecolo -->
-        <div class="project-card" onclick="openModal('miecolo')">
-            <div class="pc-meta">
-                <span class="pc-date">Fév. 2026 — en cours</span>
-                <span class="pc-phase">Stage de fin d'études</span>
+    <div class="list-item">
+        <div class="list-date">Mars - Août 2024</div>
+        <div class="list-content">
+            <h3>Stagiaire ingénieur électronique</h3>
+            <h4>DREAM Électronique, Pessac</h4>
+            <ul>
+                <li>Conception de cartes électroniques multicouches pour instrumentation connectée (aquaculture).</li>
+                <li>Suivi de la chaîne complète : schématique sous Altium, routage, prototypage et validation.</li>
+                <li>Vérification fonctionnelle et mise en production avec 95% de conformité au premier lot.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="list-item">
+        <div class="list-date">Sept. 2021 - Oct. 2022</div>
+        <div class="list-content">
+            <h3>Apprenti développeur logiciel embarqué</h3>
+            <h4>Industrial Metrology Solutions SAS, St Erblon</h4>
+            <ul>
+                <li>Développement de logiciels C++/Qt pour le pilotage d'équipements de métrologie haute précision.</li>
+                <li>Mise en place d'un module de contrôle PID sub-micronique sur moteurs linéaires et codeurs optiques.</li>
+                <li>Conception d'une IHM de supervision et interprétation des mesures de production.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2 class="section-title">Projets Sélectionnés</h2>
+    <p class="section-note">Ces projets couvrent différents contextes : stages et alternances en entreprise, projets académiques universitaires, et initiatives personnelles. Cliquez sur un projet pour en voir les détails.</p>
+
+    <div class="projects-grid">
+
+        <!-- 1. Gazelle -->
+        <div class="project-card" onclick="openM('gazelle')">
+            <div class="project-img">
+                <span class="cat-badge cat-pro">Alternance</span>
+                <img src="images/gazelle-sim.jpg" alt="Simulateur Gazelle">
             </div>
-            <h3 class="pc-name">Plateforme IoT Multi-Connectivité</h3>
-            <p class="pc-ctx">Miecolo</p>
-            <p class="pc-desc">Intégration de modules GPS, 4G LTE et Bluetooth sur une plateforme embarquée. Conception d'une alimentation ±20V/24V et développement du firmware de communication.</p>
-            <div class="pc-skills">C | GPS (Telit) | 4G LTE | Bluetooth | Conception alimentation | UART / SPI / I2C</div>
-            <div class="pc-img pc-gradient-green"><div class="pc-img-label">GPS &middot; 4G &middot; BLE &middot; Power</div></div>
+            <h3>Simulateur Hélicoptère Gazelle SA 342</h3>
+            <p>Remise en service et modernisation d'un cockpit réel. Rétro-ingénierie des protocoles avioniques et intégration d'interfaces numériques.</p>
+            <div class="tags">
+                <span class="tag">C/C++</span>
+                <span class="tag">ARINC 429</span>
+                <span class="tag">RS-422</span>
+                <span class="tag">Temps Réel</span>
+            </div>
         </div>
 
-        <!-- Gazelle -->
-        <div class="project-card" onclick="openModal('gazelle')">
-            <div class="pc-meta">
-                <span class="pc-date">2023</span>
-                <span class="pc-phase">Alternance</span>
+        <!-- 2. ZeroTouch -->
+        <div class="project-card" onclick="openM('zerotouch')">
+            <div class="project-img">
+                <span class="cat-badge cat-pro">Alternance</span>
+                <img src="images/zerotouch.png" alt="ZeroTouch">
             </div>
-            <h3 class="pc-name">Simulateur Hélicoptère Gazelle SA 342</h3>
-            <p class="pc-ctx">Centre de simulation &middot; Armée de Terre</p>
-            <p class="pc-desc">Remise en service et modernisation d'un cockpit réel de Gazelle pour la formation des pilotes. Rétro-ingénierie des protocoles avioniques et intégration d'interfaces numériques modernes.</p>
-            <div class="pc-skills">C/C++ | ARINC 429 | RS-422 | Avionique | Temps Réel | HMI</div>
-            <div class="pc-img"><img src="assets/images/gazelle-simulator.jpg" alt="Simulateur Gazelle"></div>
+            <h3>Contrôle Moteur Nanométrique — ZeroTouch®</h3>
+            <p>Logiciel de contrôle temps réel (boucle &lt;1ms) pour machine de métrologie haute précision à servo-commande nanométrique.</p>
+            <div class="tags">
+                <span class="tag">C++17</span>
+                <span class="tag">Qt</span>
+                <span class="tag">EtherCAT</span>
+                <span class="tag">PID</span>
+            </div>
         </div>
 
-        <!-- ACMG -->
-        <div class="project-card" onclick="openModal('meteo')">
-            <div class="pc-meta">
-                <span class="pc-date">2025</span>
-                <span class="pc-phase">Stage</span>
+        <!-- 3. EcoTrack-Foot -->
+        <div class="project-card" onclick="openM('ecotrack')">
+            <div class="project-img">
+                <span class="cat-badge cat-perso">Personnel</span>
+                <div class="grad-placeholder gp-blue">≥25 FPS · Recall &gt;85% · &lt;150€</div>
             </div>
-            <h3 class="pc-name">Station Météo Connectée</h3>
-            <p class="pc-ctx">ACMG</p>
-            <p class="pc-desc">Conception d'un système complet d'acquisition de données environnementales multi-capteurs (température, humidité, pression) avec transmission cloud via WiFi/LoRa.</p>
-            <div class="pc-skills">ESP32 | Capteurs I2C/SPI | MQTT | InfluxDB | LoRa | Python</div>
-            <div class="pc-img pc-gradient-purple"><div class="pc-img-label">ESP32 &middot; MQTT &middot; LoRa &middot; Cloud</div></div>
+            <h3>EcoTrack-Foot — Suivi Balistique IA</h3>
+            <p>Système embarqué low-cost de suivi de balle en temps réel pour le football amateur. YOLOv8 + Kalman sur Raspberry Pi 5.</p>
+            <div class="tags">
+                <span class="tag">Edge AI</span>
+                <span class="tag">Python</span>
+                <span class="tag">YOLOv8</span>
+                <span class="tag">OpenCV</span>
+            </div>
         </div>
 
-        <!-- DREAM -->
-        <div class="project-card" onclick="openModal('aqua')">
-            <div class="pc-meta">
-                <span class="pc-date">2024</span>
-                <span class="pc-phase">Stage</span>
+        <!-- 4. VGA -->
+        <div class="project-card" onclick="openM('vga')">
+            <div class="project-img">
+                <span class="cat-badge cat-acad">Académique</span>
+                <img src="images/vga-arch.png" alt="Architecture VGA">
             </div>
-            <h3 class="pc-name">Carte Électronique pour Aquaculture</h3>
-            <p class="pc-ctx">DREAM Électronique</p>
-            <p class="pc-desc">Conception, routage et validation d'un PCB 4 couches destiné à un environnement sévère (humidité, salinité). Protection IP67 et conformité aux normes de sécurité.</p>
-            <div class="pc-skills">Altium Designer | PCB 4 couches | CEM | Alimentation | STM32</div>
-            <div class="pc-img pc-gradient-indigo"><div class="pc-img-label">Altium &middot; PCB &middot; IP67</div></div>
+            <h3>Contrôleur VGA sur FPGA</h3>
+            <p>Conception from scratch en VHDL d'un contrôleur vidéo 640×480@60Hz déployé sur carte Basys3 (Artix-7).</p>
+            <div class="tags">
+                <span class="tag">VHDL</span>
+                <span class="tag">Vivado</span>
+                <span class="tag">FPGA</span>
+                <span class="tag">Basys3</span>
+            </div>
         </div>
 
-        <!-- IMS -->
-        <div class="project-card" onclick="openModal('nanomotor')">
-            <div class="pc-meta">
-                <span class="pc-date">2022</span>
-                <span class="pc-phase">Stage</span>
+        <!-- 5. FIR -->
+        <div class="project-card" onclick="openM('fir')">
+            <div class="project-img">
+                <span class="cat-badge cat-acad">Académique</span>
+                <img src="images/fir.png" alt="Filtre FIR">
             </div>
-            <h3 class="pc-name">Contrôle Moteur Nanométrique</h3>
-            <p class="pc-ctx">Industrial Metrology Solutions</p>
-            <p class="pc-desc">Développement du logiciel de contrôle temps réel (boucle &lt;1ms) pour une machine de métrologie industrielle de haute précision. Positionnement nanométrique par EtherCAT.</p>
-            <div class="pc-skills">C++17 | Qt | EtherCAT | Régulation PID | Multi-threading | Temps Réel</div>
-            <div class="pc-img"><img src="assets/images/zerotouch.png" alt="Machine ZeroTouch"></div>
+            <h3>Filtre Numérique FIR sur Cortex-M4</h3>
+            <p>Implémentation d'un filtre passe-bas en virgule fixe Q15 avec instructions DSP SIMD et validation spectrale.</p>
+            <div class="tags">
+                <span class="tag">C</span>
+                <span class="tag">CMSIS-DSP</span>
+                <span class="tag">ARM Cortex-M4</span>
+                <span class="tag">MATLAB</span>
+            </div>
         </div>
 
-        <h2 class="cat-title">Projets Académiques &amp; Personnel</h2>
-
-        <!-- EcoTrack-Foot -->
-        <div class="project-card" onclick="openModal('ecotrack')">
-            <div class="pc-meta">
-                <span class="pc-date">2025</span>
-                <span class="pc-phase">Projet de fin d'études</span>
+        <!-- 6. GPIO Driver -->
+        <div class="project-card" onclick="openM('gpio')">
+            <div class="project-img">
+                <span class="cat-badge cat-acad">Académique</span>
+                <div class="grad-placeholder gp-red">insmod gpio_driver.ko</div>
             </div>
-            <h3 class="pc-name">EcoTrack-Foot</h3>
-            <p class="pc-ctx">Projet personnel &middot; ESEO / Evering</p>
-            <p class="pc-desc">Système embarqué low-cost (&lt;150 €) de suivi balistique en temps réel pour l'analyse vidéo de matchs de football amateur. Détection YOLOv8 quantifiée INT8, tracking Kalman, ≥25 FPS sur Raspberry Pi 5.</p>
-            <div class="pc-skills">Python | YOLOv8 | OpenCV | TensorFlow Lite | Kalman | Raspberry Pi 5 | Multiprocessing</div>
-            <div class="pc-img pc-gradient-blue"><div class="pc-img-label">≥25 FPS &middot; Recall >85% &middot; &lt;150 €</div></div>
+            <h3>Driver Linux GPIO</h3>
+            <p>Module noyau Linux (Character Device Driver) avec gestion des interruptions matérielles et interface sysfs.</p>
+            <div class="tags">
+                <span class="tag">C</span>
+                <span class="tag">Linux Kernel</span>
+                <span class="tag">GPIO</span>
+                <span class="tag">IRQ</span>
+            </div>
         </div>
 
-        <!-- VGA -->
-        <div class="project-card" onclick="openModal('vga')">
-            <div class="pc-meta">
-                <span class="pc-date">2024</span>
-                <span class="pc-phase">Académique</span>
+        <!-- 7. RTOS -->
+        <div class="project-card" onclick="openM('rtos')">
+            <div class="project-img">
+                <span class="cat-badge cat-acad">Académique</span>
+                <img src="images/rtos.svg" alt="Architecture RTOS">
             </div>
-            <h3 class="pc-name">Contrôleur VGA sur FPGA</h3>
-            <p class="pc-ctx">Projet universitaire &middot; Evering Bordeaux</p>
-            <p class="pc-desc">Conception from scratch en VHDL d'un contrôleur vidéo 640×480@60Hz. Architecture RTL modulaire déployée sur carte Basys3 (Artix-7), sans aucune IP propriétaire Xilinx.</p>
-            <div class="pc-skills">VHDL | Vivado | Basys3 | Artix-7 | ModelSim | Testbench</div>
-            <div class="pc-img"><img src="assets/images/vga-architecture.png" alt="Architecture VGA"></div>
+            <h3>Système d'Acquisition RTOS</h3>
+            <p>Firmware multitâche STM32 + FreeRTOS. Architecture producteur-consommateur avec queues, mutex et watchdog.</p>
+            <div class="tags">
+                <span class="tag">STM32</span>
+                <span class="tag">FreeRTOS</span>
+                <span class="tag">C</span>
+                <span class="tag">ADC/DMA</span>
+            </div>
         </div>
 
-        <!-- FIR -->
-        <div class="project-card" onclick="openModal('fir')">
-            <div class="pc-meta">
-                <span class="pc-date">2024</span>
-                <span class="pc-phase">Académique</span>
+        <!-- 8. Yocto -->
+        <div class="project-card" onclick="openM('yocto')">
+            <div class="project-img">
+                <span class="cat-badge cat-acad">Académique</span>
+                <div class="grad-placeholder gp-teal">bitbake core-image-minimal</div>
             </div>
-            <h3 class="pc-name">Filtre Numérique FIR</h3>
-            <p class="pc-ctx">Projet universitaire</p>
-            <p class="pc-desc">Implémentation et optimisation d'un filtre passe-bas FIR sur microcontrôleur ARM Cortex-M4. Quantification en virgule fixe Q15, exploitation des instructions DSP SIMD, buffer circulaire.</p>
-            <div class="pc-skills">C | CMSIS-DSP | ARM Cortex-M4 | MATLAB | Virgule fixe Q15</div>
-            <div class="pc-img"><img src="assets/images/fir-filter.png" alt="Résultat FIR"></div>
-        </div>
-
-        <!-- GPIO -->
-        <div class="project-card" onclick="openModal('gpio')">
-            <div class="pc-meta">
-                <span class="pc-date">2024</span>
-                <span class="pc-phase">Académique</span>
+            <h3>Distribution Linux Embarqué (Yocto)</h3>
+            <p>Image Linux sur-mesure avec Yocto Project. BSP ARM, layers custom, recettes BitBake, rootfs optimisée 8.2 MB.</p>
+            <div class="tags">
+                <span class="tag">Yocto</span>
+                <span class="tag">BitBake</span>
+                <span class="tag">Linux</span>
+                <span class="tag">Cross-compilation</span>
             </div>
-            <h3 class="pc-name">Driver Linux GPIO</h3>
-            <p class="pc-ctx">Projet universitaire</p>
-            <p class="pc-desc">Écriture d'un module noyau Linux (Character Device Driver) avec gestion des file operations, interruptions matérielles, interface sysfs et gestion propre des ressources (probe/remove).</p>
-            <div class="pc-skills">C | Linux Kernel | Device Drivers | GPIO | IRQ | sysfs</div>
-            <div class="pc-img pc-gradient-red"><div class="pc-img-label">insmod gpio_driver.ko</div></div>
-        </div>
-
-        <!-- RTOS -->
-        <div class="project-card" onclick="openModal('rtos')">
-            <div class="pc-meta">
-                <span class="pc-date">2025</span>
-                <span class="pc-phase">Académique</span>
-            </div>
-            <h3 class="pc-name">Système d'Acquisition RTOS</h3>
-            <p class="pc-ctx">Projet universitaire</p>
-            <p class="pc-desc">Firmware multitâche sur STM32 avec ordonnancement FreeRTOS. Architecture producteur-consommateur : acquisition ADC/DMA, filtrage temps réel, transmission UART. Queues, mutex, watchdog.</p>
-            <div class="pc-skills">STM32 | FreeRTOS | C | HAL | ADC/DMA | UART | Watchdog</div>
-            <div class="pc-img pc-gradient-emerald"><div class="pc-img-label">FreeRTOS &middot; STM32 &middot; Multi-tâches</div></div>
-        </div>
-
-        <!-- Yocto -->
-        <div class="project-card" onclick="openModal('yocto')">
-            <div class="pc-meta">
-                <span class="pc-date">2024</span>
-                <span class="pc-phase">Académique</span>
-            </div>
-            <h3 class="pc-name">Distribution Linux Embarqué (Yocto)</h3>
-            <p class="pc-ctx">Projet universitaire</p>
-            <p class="pc-desc">Construction d'une distribution Linux sur-mesure avec Yocto Project. Configuration BSP pour cible ARM, création de layers et recettes personnalisées, image rootfs optimisée à 8.2 MB.</p>
-            <div class="pc-skills">Yocto | BitBake | Linux | Shell | Cross-compilation | BSP ARM</div>
-            <div class="pc-img pc-gradient-teal"><div class="pc-img-label">bitbake core-image-minimal</div></div>
-        </div>
-
-        <!-- Line Follower -->
-        <div class="project-card" onclick="openModal('linefollower')">
-            <div class="pc-meta">
-                <span class="pc-date">2024</span>
-                <span class="pc-phase">Académique</span>
-            </div>
-            <h3 class="pc-name">Robot Suiveur de Ligne (ROS/Gazebo)</h3>
-            <p class="pc-ctx">Projet universitaire</p>
-            <p class="pc-desc">Modélisation d'un robot à entraînement différentiel sous Fusion 360 et simulation de son comportement de suivi de ligne dans ROS1/Gazebo. Perception caméra et régulation PID.</p>
-            <div class="pc-skills">ROS1 | Gazebo | Fusion 360 | Python | PID | Caméra / Perception</div>
-            <div class="pc-img pc-gradient-cyan"><div class="pc-img-label">ROS &middot; Gazebo &middot; PID</div></div>
-        </div>
-
-        <!-- Omni Bot -->
-        <div class="project-card" onclick="openModal('omnibot')">
-            <div class="pc-meta">
-                <span class="pc-date">2024</span>
-                <span class="pc-phase">Académique</span>
-            </div>
-            <h3 class="pc-name">Robot Omnidirectionnel (Omni Bot)</h3>
-            <p class="pc-ctx">Projet universitaire</p>
-            <p class="pc-desc">Conception et assemblage d'un robot à 4 roues omnidirectionnelles (mouvement holonomique). Pilotage par manette PS3 via Arduino, avec transformations cinématiques pour la conversion joystick → vitesses roues.</p>
-            <div class="pc-skills">Arduino | Cytron Motor Drivers | PWM | LiPo 3S | Cinématique | PS3 Controller</div>
-            <div class="pc-img pc-gradient-orange"><div class="pc-img-label">Holonomique &middot; 4 roues omni</div></div>
-        </div>
-
-        <!-- UGV -->
-        <div class="project-card" onclick="openModal('ugv')">
-            <div class="pc-meta">
-                <span class="pc-date">2024</span>
-                <span class="pc-phase">Académique</span>
-            </div>
-            <h3 class="pc-name">Véhicule Terrestre Autonome (UGV)</h3>
-            <p class="pc-ctx">Projet universitaire</p>
-            <p class="pc-desc">Robot autonome de navigation intérieure combinant Raspberry Pi (ROS, perception) et Arduino (contrôle moteur). Caméra Intel RealSense pour la cartographie de profondeur et l'évitement d'obstacles.</p>
-            <div class="pc-skills">Raspberry Pi | ROS | Arduino | Intel RealSense | L293D | Stepper | Python</div>
-            <div class="pc-img pc-gradient-amber"><div class="pc-img-label">Autonome &middot; RealSense &middot; ROS</div></div>
         </div>
 
     </div>
 </section>
 
-<!-- Gallery -->
-<section class="section gallery-section">
-    <div class="container">
-        <h2 class="cat-title">Sur le terrain</h2>
-        <div class="gallery">
-            <div class="gi gi-big"><img src="assets/images/gazelle-simulator.jpg" alt="Cockpit simulateur"><div class="gi-cap">Simulateur Gazelle — cockpit opérationnel</div></div>
-            <div class="gi"><img src="assets/images/gazelle-helicopter.jpg" alt="Gazelle SA 342"><div class="gi-cap">Gazelle SA 342 — Armée de Terre</div></div>
-            <div class="gi"><img src="assets/images/gazelle-cockpit.jpg" alt="Cockpit"><div class="gi-cap">Cockpit monté sur plateforme</div></div>
-            <div class="gi"><img src="assets/images/zerotouch.png" alt="ZeroTouch"><div class="gi-cap">ZeroTouch® — métrologie nanométrique</div></div>
+<section id="education">
+    <h2 class="section-title">Formation & Compétences</h2>
+
+    <div class="list-item">
+        <div class="list-date">2025 - 2026</div>
+        <div class="list-content">
+            <h3>Master 2 Systèmes Embarqués</h3>
+            <h4>Evering / Université de Bordeaux</h4>
         </div>
     </div>
-</section>
 
-<!-- ======================== EXPERIENCE ======================== -->
-<section class="section" id="experience">
-    <div class="container">
-        <h2 class="cat-title">Parcours professionnel</h2>
-        <div class="exp-list">
-            <div class="exp-item">
-                <div class="exp-date">Fév. — Juil. 2026</div>
-                <div class="exp-body">
-                    <h3>Stagiaire Systèmes Embarqués</h3>
-                    <p class="exp-company">Miecolo &middot; Bordeaux</p>
-                    <ul>
-                        <li>Intégration et configuration de modules GPS Telit, 4G LTE et Bluetooth</li>
-                        <li>Conception et test d'un générateur de tension ±20V/24V</li>
-                        <li>Développement firmware embarqué et tests fonctionnels</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="exp-item">
-                <div class="exp-date">2025</div>
-                <div class="exp-body">
-                    <h3>Stagiaire Logiciel Embarqué</h3>
-                    <p class="exp-company">ACMG</p>
-                    <ul>
-                        <li>Développement d'un système d'acquisition de données environnementales</li>
-                        <li>Station météo connectée ESP32 avec transmission MQTT/LoRa</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="exp-item">
-                <div class="exp-date">2024</div>
-                <div class="exp-body">
-                    <h3>Stagiaire Conception Électronique</h3>
-                    <p class="exp-company">DREAM Électronique</p>
-                    <ul>
-                        <li>Conception et routage de PCB multicouche sous Altium Designer</li>
-                        <li>Validation CEM et tests pour environnement aquacole sévère</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="exp-item">
-                <div class="exp-date">2023</div>
-                <div class="exp-body">
-                    <h3>Alternant — Simulateur Gazelle</h3>
-                    <p class="exp-company">Centre de simulation &middot; Armée de Terre</p>
-                    <ul>
-                        <li>Rétro-ingénierie des protocoles avioniques (ARINC 429, RS-422)</li>
-                        <li>Modernisation cockpit réel Gazelle SA 342</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="exp-item">
-                <div class="exp-date">2022</div>
-                <div class="exp-body">
-                    <h3>Stagiaire Développement Logiciel</h3>
-                    <p class="exp-company">Industrial Metrology Solutions</p>
-                    <ul>
-                        <li>Logiciel C++ temps réel pour métrologie nanométrique</li>
-                        <li>Boucle de contrôle &lt;1ms, régulation PID, interface Qt</li>
-                    </ul>
-                </div>
-            </div>
+    <div class="list-item">
+        <div class="list-date">2019 - 2024</div>
+        <div class="list-content">
+            <h3>Diplôme d'Ingénieur — Major de promotion (15.45/20)</h3>
+            <h4>ESEO Angers — Électronique & Informatique</h4>
         </div>
+    </div>
 
-        <h2 class="cat-title" style="margin-top:80px;">Formation</h2>
-        <div class="exp-list">
-            <div class="exp-item">
-                <div class="exp-date">2025 — 2026</div>
-                <div class="exp-body">
-                    <h3>Master 2 Systèmes Embarqués</h3>
-                    <p class="exp-company">Evering / Université de Bordeaux — IMSAT/ISE</p>
-                </div>
-            </div>
-            <div class="exp-item">
-                <div class="exp-date">2019 — 2024</div>
-                <div class="exp-body">
-                    <h3>Diplôme d'Ingénieur — Major de promotion</h3>
-                    <p class="exp-company">ESEO Angers — Électronique & Informatique</p>
-                </div>
+    <div class="list-item" style="margin-top: 2rem;">
+        <div class="list-date">Expertise Technique</div>
+        <div class="list-content">
+            <div class="tags" style="gap: 1rem;">
+                <span class="tag" style="border-color: #111; color: #111;">Edge AI : TensorFlow Lite, ONNX, YOLOv8</span>
+                <span class="tag" style="border-color: #111; color: #111;">C, C++, Python, VHDL, Java</span>
+                <span class="tag" style="border-color: #111; color: #111;">STM32, FreeRTOS, Linux embarqué, Yocto</span>
+                <span class="tag" style="border-color: #111; color: #111;">Altium Designer, KiCad</span>
+                <span class="tag" style="border-color: #111; color: #111;">UART, SPI, I2C, CAN, Modbus, EtherCAT</span>
+                <span class="tag" style="border-color: #111; color: #111;">FPGA Xilinx, Vivado, VHDL</span>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ======================== TOOLBOX ======================== -->
-<section class="section" id="toolbox">
-    <div class="container">
-        <div class="tb-marquee"><div class="tb-marquee-track"><span>TOOLBOX &middot; SKILLS &middot; EXPERTISE &middot; TOOLBOX &middot; SKILLS &middot; EXPERTISE &middot; TOOLBOX &middot; SKILLS &middot; EXPERTISE &middot;&nbsp;</span><span>TOOLBOX &middot; SKILLS &middot; EXPERTISE &middot; TOOLBOX &middot; SKILLS &middot; EXPERTISE &middot; TOOLBOX &middot; SKILLS &middot; EXPERTISE &middot;&nbsp;</span></div></div>
-        <div class="tb-grid">
-            <div class="tb-card">
-                <h3>Langages</h3>
-                <p class="tb-sub">Développement</p>
-                <ul>
-                    <li><span>C / C++</span><span class="lvl adv">Avancé</span></li>
-                    <li><span>Python</span><span class="lvl mid">Intermédiaire</span></li>
-                    <li><span>VHDL</span><span class="lvl mid">Intermédiaire</span></li>
-                    <li><span>Java</span><span class="lvl mid">Intermédiaire</span></li>
-                    <li><span>Rust</span><span class="lvl bas">Notions</span></li>
-                    <li><span>Bash / Shell</span><span class="lvl mid">Intermédiaire</span></li>
-                </ul>
-            </div>
-            <div class="tb-card">
-                <h3>Système</h3>
-                <p class="tb-sub">OS & RTOS</p>
-                <ul>
-                    <li><span>Linux Embarqué</span><span class="lvl adv">Avancé</span></li>
-                    <li><span>FreeRTOS</span><span class="lvl mid">Intermédiaire</span></li>
-                    <li><span>Yocto Project</span><span class="lvl mid">Intermédiaire</span></li>
-                    <li><span>Drivers Kernel</span><span class="lvl mid">Intermédiaire</span></li>
-                    <li><span>Raspberry Pi</span><span class="lvl adv">Avancé</span></li>
-                </ul>
-            </div>
-            <div class="tb-card">
-                <h3>Hardware</h3>
-                <p class="tb-sub">Électronique & FPGA</p>
-                <ul>
-                    <li><span>STM32 (Cortex-M)</span><span class="lvl adv">Avancé</span></li>
-                    <li><span>FPGA Xilinx/Intel</span><span class="lvl mid">Intermédiaire</span></li>
-                    <li><span>PCB Altium/KiCad</span><span class="lvl mid">Intermédiaire</span></li>
-                    <li><span>I2C, SPI, UART</span><span class="lvl adv">Avancé</span></li>
-                </ul>
-            </div>
-            <div class="tb-card">
-                <h3>Outils & IA</h3>
-                <p class="tb-sub">Dev & Vision</p>
-                <ul>
-                    <li><span>Git / GitHub</span><span class="lvl adv">Avancé</span></li>
-                    <li><span>OpenCV / TFLite</span><span class="lvl mid">Intermédiaire</span></li>
-                    <li><span>YOLOv8</span><span class="lvl mid">Intermédiaire</span></li>
-                    <li><span>Matlab / Simulink</span><span class="lvl mid">Intermédiaire</span></li>
-                    <li><span>Vivado / ModelSim</span><span class="lvl mid">Intermédiaire</span></li>
-                </ul>
-            </div>
-            <div class="tb-card">
-                <h3>Langues</h3>
-                <p class="tb-sub">Communication</p>
-                <ul>
-                    <li><span>Français</span><span class="lvl adv">Natif</span></li>
-                    <li><span>Anglais</span><span class="lvl adv">C1</span></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ======================== CONTACT ======================== -->
-<section class="section" id="contact">
-    <div class="container contact-center">
-        <h2 class="section-heading">Contact</h2>
-        <p class="contact-text">Ouvert aux opportunités, collaborations et échanges.</p>
-        <div class="contact-row">
-            <a href="mailto:votre.email@example.com" class="contact-btn">Email<span>votre.email@example.com</span></a>
-            <a href="https://www.linkedin.com/in/votre-profil" target="_blank" class="contact-btn">LinkedIn<span>Voir mon profil</span></a>
-            <a href="https://github.com/Root954" target="_blank" class="contact-btn">GitHub<span>Root954</span></a>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
 <footer>
-    <div class="container footer-inner">
-        <span class="footer-logo">JM</span>
-        <p>Ingénieur avec intention.</p>
-        <p class="footer-copy">&copy; 2026 Junior MBA. Tous droits réservés.</p>
+    <div>&copy; 2026 Junior MBA.</div>
+    <div>
+        <a href="mailto:juniormba.pro@hotmail.com" style="margin-right: 1rem;">Email</a>
+        <a href="https://github.com/Root954" target="_blank" style="margin-right: 1rem;">GitHub</a>
+        <a href="https://root954.github.io/portfolio-2026/" target="_blank">Portfolio original</a>
     </div>
 </footer>
 
-<!-- ======================== MODAL ======================== -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
-    <div class="modal" onclick="event.stopPropagation()">
-        <button class="modal-x" onclick="closeModal()">&times;</button>
-        <div id="modalBody"></div>
-    </div>
+<!-- MODAL -->
+<div class="modal-overlay" id="overlay" onclick="closeM(event)">
+<div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeM()">&times;</button>
+    <div id="modalBody"></div>
+</div>
 </div>
 
-<script src="js/main.js"></script>
+<script>
+var P = {
+gazelle: {
+    t: "Simulateur Hélicoptère Gazelle SA 342",
+    badge: "Alternance", bc: "cat-pro", y: "Sept. 2021 – Oct. 2022",
+    h: '<div class="m-imgs"><img src="images/gazelle-sim.jpg" alt="Cockpit simulateur"><img src="images/gazelle-heli.jpg" alt="Gazelle dans le hangar"><img src="images/gazelle-platform.jpg" alt="Cockpit sur plateforme"></div>' +
+    '<h3>Contexte</h3><p>Alternance d\'un an au sein d\'un centre de simulation de l\'<strong>Armée de Terre</strong>. L\'objectif était de remettre en service un cockpit réel de Gazelle SA 342 — hélicoptère léger de reconnaissance — pour l\'utiliser comme outil de formation des pilotes.</p>' +
+    '<h3>Objectifs</h3><ul><li>Rétro-ingénierie des protocoles avioniques du cockpit (ARINC 429, RS-422)</li><li>Intégration d\'écrans et interfaces numériques modernes dans un cockpit analogique</li><li>Développement des modules de communication entre cockpit réel et moteur de simulation</li><li>Calibration des commandes de vol (collectif, cyclique, palonniers)</li></ul>' +
+    '<h3>Livrables</h3><ul><li>Cockpit opérationnel connecté au simulateur — validé par les instructeurs pilotes</li><li>Documentation technique exhaustive des protocoles et interfaces</li><li>Procédures de maintenance et de calibration</li></ul>' +
+    '<div class="m-highlight"><p>Contrainte critique : respect strict des normes de sécurité et des procédures militaires tout au long du projet.</p></div>' +
+    '<div class="m-chips"><span>C/C++</span><span>ARINC 429</span><span>RS-422</span><span>Avionique</span><span>Temps Réel</span><span>HMI</span><span>Simulation</span></div>'
+},
+zerotouch: {
+    t: "Contrôle Moteur Nanométrique — ZeroTouch®",
+    badge: "Alternance", bc: "cat-pro", y: "Sept. 2021 – Oct. 2022",
+    h: '<div class="m-imgs"><img src="images/zerotouch.png" alt="Machine ZeroTouch"></div>' +
+    '<h3>Contexte</h3><p>Alternance chez <strong>Industrial Metrology Solutions SAS</strong> (St Erblon). La machine ZeroTouch® est un système de métrologie industrielle qui mesure des pièces mécaniques avec une précision nanométrique. Elle utilise des moteurs linéaires pilotés par des codeurs optiques haute résolution.</p>' +
+    '<h3>Objectifs</h3><ul><li>Développer le logiciel de contrôle temps réel avec une boucle de régulation <strong>&lt;1ms</strong></li><li>Implémenter une servo-commande <strong>PID</strong> sub-micronique sur moteurs linéaires</li><li>Concevoir une IHM opérateur complète sous <strong>Qt</strong></li><li>Intégrer la communication <strong>EtherCAT</strong> avec les variateurs</li></ul>' +
+    '<h3>Livrables</h3><ul><li>Logiciel de contrôle multi-threadé C++17 opérationnel en production</li><li>Interface opérateur Qt avec visualisation 3D des mesures</li><li>Module de gestion des alarmes et modes dégradés</li></ul>' +
+    '<div class="m-highlight"><p>Défi technique majeur : temps de réponse déterministe avec thread priority, memory locking et queues lock-free.</p></div>' +
+    '<div class="m-chips"><span>C++17</span><span>Qt</span><span>EtherCAT</span><span>PID</span><span>Multi-threading</span><span>Temps Réel</span></div>'
+},
+ecotrack: {
+    t: "EcoTrack-Foot — Système de Suivi Balistique",
+    badge: "Personnel", bc: "cat-perso", y: "2025",
+    h: '<h3>Contexte</h3><p>Projet personnel de fin d\'études. Les clubs de football amateurs n\'ont pas accès aux outils d\'analyse vidéo des clubs professionnels (coût &gt;10 000€). EcoTrack-Foot propose une alternative embarquée à <strong>moins de 150€</strong>.</p>' +
+    '<h3>Objectifs</h3><ul><li>Détecter et suivre le ballon en temps réel (&ge;25 FPS) sur <strong>Raspberry Pi 5</strong></li><li>Atteindre un recall &gt;85% même en conditions d\'éclairage variable</li><li>Gérer les occlusions (joueurs masquant le ballon) jusqu\'à 1.5 secondes</li><li>Exporter les données en CSV et vidéo annotée H.264</li></ul>' +
+    '<h3>Architecture technique</h3><ul><li>Pipeline asynchrone multiprocessing : Reader → Detector → Tracker → Export</li><li><strong>YOLOv8 Nano</strong> quantifié <strong>INT8</strong> via TensorFlow Lite — inférence &lt;30ms</li><li>Filtre de <strong>Kalman</strong> pour le tracking continu à travers les occlusions</li></ul>' +
+    '<h3>Résultats</h3><ul><li>&ge;25 FPS sur flux 1080p</li><li>Recall &gt;85%, latence &lt;200ms</li><li>Mémoire &lt;3.5 GB, température &lt;75°C</li></ul>' +
+    '<div class="m-chips"><span>Python</span><span>YOLOv8</span><span>OpenCV</span><span>TFLite</span><span>Kalman</span><span>RPi 5</span><span>Multiprocessing</span></div>'
+},
+vga: {
+    t: "Contrôleur VGA sur FPGA",
+    badge: "Académique", bc: "cat-acad", y: "2024",
+    h: '<div class="m-imgs"><img src="images/vga-rtl.png" alt="Schéma RTL"><img src="images/vga-arch.png" alt="Architecture VGA_DISPLAY"><img src="images/vga-sim.png" alt="Simulation"></div>' +
+    '<h3>Contexte</h3><p>Projet universitaire — conception <strong>from scratch</strong> en VHDL d\'un contrôleur vidéo complet, sans utiliser aucune IP propriétaire Xilinx. Déploiement sur carte <strong>Basys3</strong> (Artix-7 FPGA).</p>' +
+    '<h3>Objectifs</h3><ul><li>Générer un signal VGA 640×480 @ 60Hz conforme au standard</li><li>Concevoir une architecture RTL modulaire et testable</li><li>Valider par simulation avant synthèse et déploiement physique</li></ul>' +
+    '<h3>Architecture RTL</h3><ul><li><strong>Clock_Divider</strong> : 100 MHz → 25.175 MHz (pixel clock)</li><li><strong>VGA_SYNC</strong> : compteurs horizontaux/verticaux, génération HSYNC/VSYNC</li><li><strong>VGA_DISPLAY</strong> : logique de couleur RGB avec patterns de test</li></ul>' +
+    '<h3>Livrables</h3><ul><li>Code VHDL complet avec testbenches pour chaque module</li><li>Synthèse : LUT 1%, FF 1%, IO 9%, 0 erreur, 0 failing endpoint</li><li>Implémentation : WNS 8.564 ns, puissance 0.073 W</li><li>Signal VGA opérationnel vérifié sur moniteur</li></ul>' +
+    '<div class="m-imgs"><img src="images/vga-synth.png" alt="Synthèse Vivado"><img src="images/vga-impl.png" alt="Implémentation Vivado"></div>' +
+    '<div class="m-chips"><span>VHDL</span><span>Vivado</span><span>Basys3</span><span>Artix-7</span><span>ModelSim</span><span>Testbench</span></div>'
+},
+fir: {
+    t: "Filtre Numérique FIR sur Cortex-M4",
+    badge: "Académique", bc: "cat-acad", y: "2024",
+    h: '<div class="m-imgs"><img src="images/fir.png" alt="Réponse du filtre FIR"></div>' +
+    '<h3>Contexte</h3><p>Projet universitaire de traitement numérique du signal — implémentation d\'un filtre passe-bas FIR sur microcontrôleur <strong>ARM Cortex-M4</strong>, en exploitant les capacités DSP du processeur.</p>' +
+    '<h3>Objectifs</h3><ul><li>Concevoir le filtre sous <strong>MATLAB</strong> (spécifications fréquentielles)</li><li>Quantifier les coefficients en <strong>virgule fixe Q15</strong></li><li>Exploiter les instructions <strong>DSP SIMD</strong> du Cortex-M4</li><li>Valider la réponse fréquentielle par analyse spectrale (FFT)</li></ul>' +
+    '<h3>Livrables</h3><ul><li>Code C optimisé utilisant les fonctions <strong>CMSIS-DSP</strong></li><li>Buffer circulaire pour minimiser les copies mémoire</li><li>Validation : le signal bruité d\'entrée est correctement filtré (voir graphique)</li></ul>' +
+    '<div class="m-highlight"><p>Le graphique montre l\'efficacité du filtrage : signal bruité (gris) vs signal filtré (bleu) — le filtre FIR supprime efficacement le bruit haute fréquence tout en préservant le signal utile.</p></div>' +
+    '<div class="m-chips"><span>C</span><span>CMSIS-DSP</span><span>ARM Cortex-M4</span><span>MATLAB</span><span>Fixed-Point Q15</span><span>FFT</span></div>'
+},
+gpio: {
+    t: "Driver Linux GPIO",
+    badge: "Académique", bc: "cat-acad", y: "2024",
+    h: '<h3>Contexte</h3><p>Projet universitaire de programmation système — développement d\'un module noyau Linux complet (Character Device Driver) pour piloter des GPIOs avec gestion des interruptions matérielles.</p>' +
+    '<h3>Objectifs</h3><ul><li>Implémenter les file operations du kernel : open, read, write, ioctl, release</li><li>Gérer les interruptions GPIO via un IRQ handler</li><li>Exposer une interface <strong>sysfs</strong> pour le contrôle depuis l\'espace utilisateur</li><li>Assurer une gestion propre des ressources (probe/remove)</li></ul>' +
+    '<h3>Livrables</h3><ul><li>Module noyau compilable et chargeable (insmod/rmmod)</li><li>Interface sysfs fonctionnelle</li><li>Gestion robuste des erreurs et des cas limites</li></ul>' +
+    '<div class="m-chips"><span>C</span><span>Linux Kernel</span><span>Character Device</span><span>GPIO</span><span>IRQ</span><span>sysfs</span><span>Device Tree</span></div>'
+},
+rtos: {
+    t: "Système d\'Acquisition RTOS",
+    badge: "Académique", bc: "cat-acad", y: "2025",
+    h: '<div class="m-imgs"><img src="images/rtos.svg" alt="Architecture RTOS"></div>' +
+    '<h3>Contexte</h3><p>Projet universitaire — firmware multitâche sur <strong>STM32 + FreeRTOS</strong>, implémentant une architecture producteur-consommateur pour l\'acquisition de données capteurs.</p>' +
+    '<h3>Objectifs</h3><ul><li>Concevoir une architecture temps réel à 3 niveaux de priorité</li><li>Garantir l\'intégrité des données avec des mécanismes de synchronisation</li><li>Implémenter un watchdog pour la robustesse</li></ul>' +
+    '<h3>Architecture</h3><ul><li><strong>Tâche haute priorité</strong> : acquisition ADC via DMA</li><li><strong>Tâche moyenne</strong> : filtrage numérique des échantillons</li><li><strong>Tâche basse</strong> : transmission UART vers PC</li><li>Communication inter-tâches via <strong>queues</strong> et <strong>mutex</strong></li></ul>' +
+    '<h3>Livrables</h3><ul><li>Firmware complet déployé et testé sur cible STM32</li><li>Documentation de l\'architecture et des mécanismes de synchronisation</li></ul>' +
+    '<div class="m-chips"><span>STM32</span><span>FreeRTOS</span><span>C</span><span>HAL</span><span>ADC/DMA</span><span>UART</span><span>Watchdog</span></div>'
+},
+yocto: {
+    t: "Distribution Linux Embarqué (Yocto)",
+    badge: "Académique", bc: "cat-acad", y: "2024",
+    h: '<h3>Contexte</h3><p>Projet universitaire — création d\'une distribution Linux sur-mesure avec le <strong>Yocto Project</strong>, optimisée pour une cible ARM embarquée.</p>' +
+    '<h3>Objectifs</h3><ul><li>Configurer un <strong>BSP ARM</strong> et intégrer les drivers nécessaires</li><li>Créer des layers et recettes <strong>BitBake</strong> personnalisés</li><li>Minimiser la taille de l\'image rootfs</li><li>Cross-compiler et déployer sur cible</li></ul>' +
+    '<h3>Livrables</h3><ul><li>Image rootfs fonctionnelle de seulement <strong>8.2 MB</strong></li><li>Layers custom avec recettes documentées</li><li>Procédure de build et de déploiement reproductible</li></ul>' +
+    '<div class="m-highlight"><p>Résultat clé : rootfs de 8.2 MB — environ 50× plus légère qu\'une Raspbian standard, avec uniquement les composants nécessaires.</p></div>' +
+    '<div class="m-chips"><span>Yocto</span><span>BitBake</span><span>Linux</span><span>Shell</span><span>Cross-compilation</span><span>BSP ARM</span></div>'
+}
+};
+
+function openM(id) {
+    var p = P[id]; if (!p) return;
+    var badge = '<span class="m-badge ' + p.bc + '">' + p.badge + '</span>';
+    document.getElementById('modalBody').innerHTML =
+        '<h2>' + p.t + '</h2>' +
+        '<div class="m-meta">' + badge + '<span class="m-year">' + p.y + '</span></div>' + p.h;
+    document.getElementById('overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeM(e) {
+    if (e && e.target && e.target !== document.getElementById('overlay')) return;
+    document.getElementById('overlay').classList.remove('open');
+    document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeM(); });
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+});
+</script>
 </body>
 </html>

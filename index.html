@@ -23,7 +23,6 @@
         }
         a { color: inherit; text-decoration: none; }
 
-        /* --- NAVIGATION --- */
         nav {
             position: fixed; top: 0; width: 100%;
             padding: 1.5rem var(--spacing);
@@ -40,7 +39,6 @@
         }
         .nav-links a:hover { color: var(--text-muted); }
 
-        /* --- LAYOUT --- */
         section {
             padding: 8rem var(--spacing) 4rem var(--spacing);
             max-width: 1400px; margin: 0 auto;
@@ -57,7 +55,6 @@
             font-style: italic; line-height: 1.6;
         }
 
-        /* --- HERO --- */
         .hero {
             min-height: 90vh; display: flex;
             flex-direction: column; justify-content: center;
@@ -86,22 +83,6 @@
             100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
         }
 
-        /* --- EXPERIENCE --- */
-        .list-item {
-            display: grid; grid-template-columns: 1fr 3fr;
-            gap: 2rem; padding: 2rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-        .list-date { color: var(--text-muted); font-size: 0.95rem; }
-        .list-content h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
-        .list-content h4 {
-            font-size: 1.1rem; color: var(--text-muted);
-            font-weight: 400; margin-bottom: 1rem;
-        }
-        .list-content ul { list-style-position: inside; color: var(--text-muted); }
-        .list-content li { margin-bottom: 0.5rem; }
-
-        /* --- PROJECTS --- */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -110,15 +91,9 @@
         .project-card { cursor: pointer; }
         .project-img {
             width: 100%; aspect-ratio: 4/3;
-            background-color: #eee; margin-bottom: 1rem;
-            overflow: hidden; border-radius: 4px;
+            margin-bottom: 1rem; overflow: hidden; border-radius: 4px;
             position: relative;
         }
-        .project-img img {
-            width: 100%; height: 100%; object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-        .project-card:hover .project-img img { transform: scale(1.03); }
         .project-img .cat-badge {
             position: absolute; top: 12px; left: 12px;
             font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
@@ -129,18 +104,6 @@
         .cat-acad { background: #2563eb; color: #fff; }
         .cat-perso { background: #059669; color: #fff; }
 
-        .project-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
-        .project-card p {
-            color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;
-        }
-        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-        .tag {
-            font-size: 0.75rem; padding: 0.3rem 0.8rem;
-            border: 1px solid var(--border); border-radius: 4px;
-            color: var(--text-muted);
-        }
-
-        /* Gradient placeholders for projects without photos */
         .grad-placeholder {
             width: 100%; height: 100%;
             display: flex; align-items: flex-end; padding: 16px;
@@ -157,8 +120,28 @@
         .gp-cyan { background: linear-gradient(135deg, #164e63, #06b6d4); }
         .gp-orange { background: linear-gradient(135deg, #7c2d12, #f97316); }
         .gp-amber { background: linear-gradient(135deg, #78350f, #f59e0b); }
+        .gp-slate { background: linear-gradient(135deg, #1e293b, #475569); }
 
-        /* --- MODAL --- */
+        .project-card:hover .grad-placeholder { filter: brightness(1.08); }
+        .project-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .project-card p {
+            color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;
+        }
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .tag {
+            font-size: 0.75rem; padding: 0.3rem 0.8rem;
+            border: 1px solid var(--border); border-radius: 4px;
+            color: var(--text-muted);
+        }
+
+        footer {
+            padding: 4rem var(--spacing);
+            border-top: 1px solid var(--border);
+            display: flex; justify-content: space-between;
+            color: var(--text-muted); font-size: 0.9rem;
+        }
+
+        /* MODAL */
         .modal-overlay {
             position: fixed; inset: 0; z-index: 200;
             background: rgba(0,0,0,0.5);
@@ -177,13 +160,10 @@
         .modal-close {
             position: absolute; top: 16px; right: 20px;
             font-size: 1.5rem; color: #999; cursor: pointer;
-            border: none; background: none;
-            transition: color 0.2s;
+            border: none; background: none; transition: color 0.2s;
         }
         .modal-close:hover { color: #111; }
-        .modal h2 {
-            font-size: 1.6rem; font-weight: 500; margin-bottom: 4px;
-        }
+        .modal h2 { font-size: 1.6rem; font-weight: 500; margin-bottom: 4px; }
         .modal .m-meta {
             display: flex; gap: 10px; align-items: center;
             margin-bottom: 28px; flex-wrap: wrap;
@@ -194,9 +174,8 @@
         }
         .m-year { font-size: 0.85rem; color: var(--text-muted); }
         .modal h3 {
-            font-size: 1.05rem; font-weight: 600;
-            color: var(--text); margin: 24px 0 8px;
-            text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;
+            font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 1px; color: var(--text); margin: 24px 0 8px;
         }
         .modal p {
             font-size: 0.92rem; color: #444; line-height: 1.7; margin-bottom: 8px;
@@ -223,20 +202,10 @@
         .m-chips span {
             font-size: 0.75rem; font-weight: 500;
             padding: 4px 12px; border-radius: 4px;
-            background: #f3f4f6; color: #555;
-            border: 1px solid #e5e7eb;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            padding: 4rem var(--spacing);
-            border-top: 1px solid var(--border);
-            display: flex; justify-content: space-between;
-            color: var(--text-muted); font-size: 0.9rem;
+            background: #f3f4f6; color: #555; border: 1px solid #e5e7eb;
         }
 
         @media (max-width: 768px) {
-            .list-item { grid-template-columns: 1fr; gap: 0.5rem; }
             .nav-links { display: none; }
             .hero h1 { font-size: 2.5rem; }
             .projects-grid { grid-template-columns: 1fr; }
@@ -253,9 +222,7 @@
     <div class="logo">JUNIOR MBA</div>
     <div class="nav-links">
         <a href="#about">Profil</a>
-        <a href="#experience">Parcours</a>
         <a href="#projects">Projets</a>
-        <a href="#education">Formation</a>
         <a href="mailto:juniormba.pro@hotmail.com">Contact</a>
     </div>
 </nav>
@@ -270,63 +237,20 @@
     </div>
 </section>
 
-<section id="experience">
-    <h2 class="section-title">Expériences Professionnelles</h2>
-
-    <div class="list-item">
-        <div class="list-date">Janvier - Juin 2025</div>
-        <div class="list-content">
-            <h3>Stagiaire ingénieur logiciel embarqué</h3>
-            <h4>ACMG, Sainte-Colombe-en-Bruilhois</h4>
-            <ul>
-                <li>Développement C sur STM32 d'un système d'acquisition de données environnementales connecté.</li>
-                <li>Implémentation de drivers bas niveau (UART, I2C, SPI) pour l'interfaçage de capteurs industriels.</li>
-                <li>Tests applicatifs et validation logicielle sur banc et en conditions terrain.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="list-item">
-        <div class="list-date">Mars - Août 2024</div>
-        <div class="list-content">
-            <h3>Stagiaire ingénieur électronique</h3>
-            <h4>DREAM Électronique, Pessac</h4>
-            <ul>
-                <li>Conception de cartes électroniques multicouches pour instrumentation connectée (aquaculture).</li>
-                <li>Suivi de la chaîne complète : schématique sous Altium, routage, prototypage et validation.</li>
-                <li>Vérification fonctionnelle et mise en production avec 95% de conformité au premier lot.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="list-item">
-        <div class="list-date">Sept. 2021 - Oct. 2022</div>
-        <div class="list-content">
-            <h3>Apprenti développeur logiciel embarqué</h3>
-            <h4>Industrial Metrology Solutions SAS, St Erblon</h4>
-            <ul>
-                <li>Développement de logiciels C++/Qt pour le pilotage d'équipements de métrologie haute précision.</li>
-                <li>Mise en place d'un module de contrôle PID sub-micronique sur moteurs linéaires et codeurs optiques.</li>
-                <li>Conception d'une IHM de supervision et interprétation des mesures de production.</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
 <section id="projects">
     <h2 class="section-title">Projets Sélectionnés</h2>
     <p class="section-note">Ces projets couvrent différents contextes : stages et alternances en entreprise, projets académiques universitaires, et initiatives personnelles. Cliquez sur un projet pour en voir les détails.</p>
 
     <div class="projects-grid">
 
-        <!-- 1. Gazelle -->
+        <!-- Gazelle -->
         <div class="project-card" onclick="openM('gazelle')">
             <div class="project-img">
-                <span class="cat-badge cat-pro">Alternance</span>
-                <img src="images/gazelle-sim.jpg" alt="Simulateur Gazelle">
+                <span class="cat-badge cat-acad">Académique</span>
+                <div class="grad-placeholder gp-slate">Cockpit réel · Protocoles avioniques · Simulation</div>
             </div>
             <h3>Simulateur Hélicoptère Gazelle SA 342</h3>
-            <p>Remise en service et modernisation d'un cockpit réel. Rétro-ingénierie des protocoles avioniques et intégration d'interfaces numériques.</p>
+            <p>Remise en service et modernisation d'un cockpit réel de Gazelle pour la formation des pilotes. Rétro-ingénierie des protocoles avioniques et intégration d'interfaces numériques.</p>
             <div class="tags">
                 <span class="tag">C/C++</span>
                 <span class="tag">ARINC 429</span>
@@ -335,13 +259,13 @@
             </div>
         </div>
 
-        <!-- 2. ZeroTouch -->
+        <!-- ZeroTouch -->
         <div class="project-card" onclick="openM('zerotouch')">
             <div class="project-img">
                 <span class="cat-badge cat-pro">Alternance</span>
-                <img src="images/zerotouch.png" alt="ZeroTouch">
+                <div class="grad-placeholder gp-indigo">Métrologie · Boucle &lt;1ms · PID</div>
             </div>
-            <h3>Contrôle Moteur Nanométrique — ZeroTouch®</h3>
+            <h3>Contrôle Moteur Nanométrique · ZeroTouch®</h3>
             <p>Logiciel de contrôle temps réel (boucle &lt;1ms) pour machine de métrologie haute précision à servo-commande nanométrique.</p>
             <div class="tags">
                 <span class="tag">C++17</span>
@@ -351,13 +275,13 @@
             </div>
         </div>
 
-        <!-- 3. EcoTrack-Foot -->
+        <!-- EcoTrack -->
         <div class="project-card" onclick="openM('ecotrack')">
             <div class="project-img">
                 <span class="cat-badge cat-perso">Personnel</span>
                 <div class="grad-placeholder gp-blue">≥25 FPS · Recall &gt;85% · &lt;150€</div>
             </div>
-            <h3>EcoTrack-Foot — Suivi Balistique IA</h3>
+            <h3>EcoTrack-Foot · Suivi Balistique IA</h3>
             <p>Système embarqué low-cost de suivi de balle en temps réel pour le football amateur. YOLOv8 + Kalman sur Raspberry Pi 5.</p>
             <div class="tags">
                 <span class="tag">Edge AI</span>
@@ -367,11 +291,11 @@
             </div>
         </div>
 
-        <!-- 4. VGA -->
+        <!-- VGA -->
         <div class="project-card" onclick="openM('vga')">
             <div class="project-img">
                 <span class="cat-badge cat-acad">Académique</span>
-                <img src="images/vga-arch.png" alt="Architecture VGA">
+                <div class="grad-placeholder gp-purple">640×480 @ 60Hz · VHDL from scratch</div>
             </div>
             <h3>Contrôleur VGA sur FPGA</h3>
             <p>Conception from scratch en VHDL d'un contrôleur vidéo 640×480@60Hz déployé sur carte Basys3 (Artix-7).</p>
@@ -383,11 +307,11 @@
             </div>
         </div>
 
-        <!-- 5. FIR -->
+        <!-- FIR -->
         <div class="project-card" onclick="openM('fir')">
             <div class="project-img">
                 <span class="cat-badge cat-acad">Académique</span>
-                <img src="images/fir.png" alt="Filtre FIR">
+                <div class="grad-placeholder gp-teal">Q15 · DSP SIMD · Buffer circulaire</div>
             </div>
             <h3>Filtre Numérique FIR sur Cortex-M4</h3>
             <p>Implémentation d'un filtre passe-bas en virgule fixe Q15 avec instructions DSP SIMD et validation spectrale.</p>
@@ -399,7 +323,7 @@
             </div>
         </div>
 
-        <!-- 6. GPIO Driver -->
+        <!-- GPIO -->
         <div class="project-card" onclick="openM('gpio')">
             <div class="project-img">
                 <span class="cat-badge cat-acad">Académique</span>
@@ -415,11 +339,11 @@
             </div>
         </div>
 
-        <!-- 7. RTOS -->
+        <!-- RTOS -->
         <div class="project-card" onclick="openM('rtos')">
             <div class="project-img">
                 <span class="cat-badge cat-acad">Académique</span>
-                <img src="images/rtos.svg" alt="Architecture RTOS">
+                <div class="grad-placeholder gp-emerald">FreeRTOS · Multi-tâches · Watchdog</div>
             </div>
             <h3>Système d'Acquisition RTOS</h3>
             <p>Firmware multitâche STM32 + FreeRTOS. Architecture producteur-consommateur avec queues, mutex et watchdog.</p>
@@ -431,11 +355,11 @@
             </div>
         </div>
 
-        <!-- 8. Yocto -->
+        <!-- Yocto -->
         <div class="project-card" onclick="openM('yocto')">
             <div class="project-img">
                 <span class="cat-badge cat-acad">Académique</span>
-                <div class="grad-placeholder gp-teal">bitbake core-image-minimal</div>
+                <div class="grad-placeholder gp-green">bitbake core-image-minimal · 8.2 MB</div>
             </div>
             <h3>Distribution Linux Embarqué (Yocto)</h3>
             <p>Image Linux sur-mesure avec Yocto Project. BSP ARM, layers custom, recettes BitBake, rootfs optimisée 8.2 MB.</p>
@@ -447,49 +371,62 @@
             </div>
         </div>
 
-    </div>
-</section>
-
-<section id="education">
-    <h2 class="section-title">Formation & Compétences</h2>
-
-    <div class="list-item">
-        <div class="list-date">2025 - 2026</div>
-        <div class="list-content">
-            <h3>Master 2 Systèmes Embarqués</h3>
-            <h4>Evering / Université de Bordeaux</h4>
-        </div>
-    </div>
-
-    <div class="list-item">
-        <div class="list-date">2019 - 2024</div>
-        <div class="list-content">
-            <h3>Diplôme d'Ingénieur — Major de promotion (15.45/20)</h3>
-            <h4>ESEO Angers — Électronique & Informatique</h4>
-        </div>
-    </div>
-
-    <div class="list-item" style="margin-top: 2rem;">
-        <div class="list-date">Expertise Technique</div>
-        <div class="list-content">
-            <div class="tags" style="gap: 1rem;">
-                <span class="tag" style="border-color: #111; color: #111;">Edge AI : TensorFlow Lite, ONNX, YOLOv8</span>
-                <span class="tag" style="border-color: #111; color: #111;">C, C++, Python, VHDL, Java</span>
-                <span class="tag" style="border-color: #111; color: #111;">STM32, FreeRTOS, Linux embarqué, Yocto</span>
-                <span class="tag" style="border-color: #111; color: #111;">Altium Designer, KiCad</span>
-                <span class="tag" style="border-color: #111; color: #111;">UART, SPI, I2C, CAN, Modbus, EtherCAT</span>
-                <span class="tag" style="border-color: #111; color: #111;">FPGA Xilinx, Vivado, VHDL</span>
+        <!-- Line Follower -->
+        <div class="project-card" onclick="openM('line')">
+            <div class="project-img">
+                <span class="cat-badge cat-acad">Académique</span>
+                <div class="grad-placeholder gp-cyan">ROS · Gazebo · PID</div>
+            </div>
+            <h3>Robot Suiveur de Ligne (ROS / Gazebo)</h3>
+            <p>Modélisation d'un robot différentiel sous Fusion 360, simulation dans ROS1/Gazebo avec perception caméra et régulation PID.</p>
+            <div class="tags">
+                <span class="tag">ROS1</span>
+                <span class="tag">Gazebo</span>
+                <span class="tag">Python</span>
+                <span class="tag">PID</span>
             </div>
         </div>
+
+        <!-- Omni Bot -->
+        <div class="project-card" onclick="openM('omni')">
+            <div class="project-img">
+                <span class="cat-badge cat-acad">Académique</span>
+                <div class="grad-placeholder gp-orange">Holonomique · 4 roues Mecanum</div>
+            </div>
+            <h3>Robot Omnidirectionnel (Omni Bot)</h3>
+            <p>Robot à 4 roues Mecanum avec mouvement holonomique complet. Pilotage manette PS3 via Arduino et cinématique inverse.</p>
+            <div class="tags">
+                <span class="tag">Arduino</span>
+                <span class="tag">Cytron</span>
+                <span class="tag">PWM</span>
+                <span class="tag">Cinématique</span>
+            </div>
+        </div>
+
+        <!-- UGV -->
+        <div class="project-card" onclick="openM('ugv')">
+            <div class="project-img">
+                <span class="cat-badge cat-acad">Académique</span>
+                <div class="grad-placeholder gp-amber">Autonome · RealSense · ROS</div>
+            </div>
+            <h3>Véhicule Terrestre Autonome (UGV)</h3>
+            <p>Robot autonome de navigation intérieure. Raspberry Pi + ROS pour la perception, Arduino + L293D pour l'actionnement, Intel RealSense pour la profondeur.</p>
+            <div class="tags">
+                <span class="tag">ROS</span>
+                <span class="tag">Intel RealSense</span>
+                <span class="tag">Arduino</span>
+                <span class="tag">Python</span>
+            </div>
+        </div>
+
     </div>
 </section>
 
 <footer>
-    <div>&copy; 2026 Junior MBA.</div>
+    <div>&copy; 2026 Junior MBA</div>
     <div>
         <a href="mailto:juniormba.pro@hotmail.com" style="margin-right: 1rem;">Email</a>
-        <a href="https://github.com/Root954" target="_blank" style="margin-right: 1rem;">GitHub</a>
-        <a href="https://root954.github.io/portfolio-2026/" target="_blank">Portfolio original</a>
+        <a href="https://github.com/Root954" target="_blank">GitHub</a>
     </div>
 </footer>
 
@@ -505,38 +442,38 @@
 var P = {
 gazelle: {
     t: "Simulateur Hélicoptère Gazelle SA 342",
-    badge: "Alternance", bc: "cat-pro", y: "Sept. 2021 – Oct. 2022",
+    badge: "Académique", bc: "cat-acad", y: "2023",
     h: '<div class="m-imgs"><img src="images/gazelle-sim.jpg" alt="Cockpit simulateur"><img src="images/gazelle-heli.jpg" alt="Gazelle dans le hangar"><img src="images/gazelle-platform.jpg" alt="Cockpit sur plateforme"></div>' +
-    '<h3>Contexte</h3><p>Alternance d\'un an au sein d\'un centre de simulation de l\'<strong>Armée de Terre</strong>. L\'objectif était de remettre en service un cockpit réel de Gazelle SA 342 — hélicoptère léger de reconnaissance — pour l\'utiliser comme outil de formation des pilotes.</p>' +
+    '<h3>Contexte</h3><p>Projet académique réalisé au sein d\'un centre de simulation de l\'Armée de Terre. L\'objectif était de remettre en service un cockpit réel de Gazelle SA 342 (hélicoptère léger de reconnaissance) pour l\'utiliser comme outil de formation des pilotes.</p>' +
     '<h3>Objectifs</h3><ul><li>Rétro-ingénierie des protocoles avioniques du cockpit (ARINC 429, RS-422)</li><li>Intégration d\'écrans et interfaces numériques modernes dans un cockpit analogique</li><li>Développement des modules de communication entre cockpit réel et moteur de simulation</li><li>Calibration des commandes de vol (collectif, cyclique, palonniers)</li></ul>' +
-    '<h3>Livrables</h3><ul><li>Cockpit opérationnel connecté au simulateur — validé par les instructeurs pilotes</li><li>Documentation technique exhaustive des protocoles et interfaces</li><li>Procédures de maintenance et de calibration</li></ul>' +
+    '<h3>Livrables</h3><ul><li>Cockpit opérationnel connecté au simulateur, validé par les instructeurs pilotes</li><li>Documentation technique exhaustive des protocoles et interfaces</li><li>Procédures de maintenance et de calibration</li></ul>' +
     '<div class="m-highlight"><p>Contrainte critique : respect strict des normes de sécurité et des procédures militaires tout au long du projet.</p></div>' +
     '<div class="m-chips"><span>C/C++</span><span>ARINC 429</span><span>RS-422</span><span>Avionique</span><span>Temps Réel</span><span>HMI</span><span>Simulation</span></div>'
 },
 zerotouch: {
-    t: "Contrôle Moteur Nanométrique — ZeroTouch®",
-    badge: "Alternance", bc: "cat-pro", y: "Sept. 2021 – Oct. 2022",
+    t: "Contrôle Moteur Nanométrique · ZeroTouch®",
+    badge: "Alternance", bc: "cat-pro", y: "2021 · 2022",
     h: '<div class="m-imgs"><img src="images/zerotouch.png" alt="Machine ZeroTouch"></div>' +
-    '<h3>Contexte</h3><p>Alternance chez <strong>Industrial Metrology Solutions SAS</strong> (St Erblon). La machine ZeroTouch® est un système de métrologie industrielle qui mesure des pièces mécaniques avec une précision nanométrique. Elle utilise des moteurs linéaires pilotés par des codeurs optiques haute résolution.</p>' +
+    '<h3>Contexte</h3><p>Alternance chez Industrial Metrology Solutions SAS (St Erblon). La machine ZeroTouch® est un système de métrologie industrielle qui mesure des pièces mécaniques avec une précision nanométrique, en utilisant des moteurs linéaires pilotés par des codeurs optiques haute résolution.</p>' +
     '<h3>Objectifs</h3><ul><li>Développer le logiciel de contrôle temps réel avec une boucle de régulation <strong>&lt;1ms</strong></li><li>Implémenter une servo-commande <strong>PID</strong> sub-micronique sur moteurs linéaires</li><li>Concevoir une IHM opérateur complète sous <strong>Qt</strong></li><li>Intégrer la communication <strong>EtherCAT</strong> avec les variateurs</li></ul>' +
     '<h3>Livrables</h3><ul><li>Logiciel de contrôle multi-threadé C++17 opérationnel en production</li><li>Interface opérateur Qt avec visualisation 3D des mesures</li><li>Module de gestion des alarmes et modes dégradés</li></ul>' +
     '<div class="m-highlight"><p>Défi technique majeur : temps de réponse déterministe avec thread priority, memory locking et queues lock-free.</p></div>' +
     '<div class="m-chips"><span>C++17</span><span>Qt</span><span>EtherCAT</span><span>PID</span><span>Multi-threading</span><span>Temps Réel</span></div>'
 },
 ecotrack: {
-    t: "EcoTrack-Foot — Système de Suivi Balistique",
+    t: "EcoTrack-Foot · Système de Suivi Balistique",
     badge: "Personnel", bc: "cat-perso", y: "2025",
-    h: '<h3>Contexte</h3><p>Projet personnel de fin d\'études. Les clubs de football amateurs n\'ont pas accès aux outils d\'analyse vidéo des clubs professionnels (coût &gt;10 000€). EcoTrack-Foot propose une alternative embarquée à <strong>moins de 150€</strong>.</p>' +
-    '<h3>Objectifs</h3><ul><li>Détecter et suivre le ballon en temps réel (&ge;25 FPS) sur <strong>Raspberry Pi 5</strong></li><li>Atteindre un recall &gt;85% même en conditions d\'éclairage variable</li><li>Gérer les occlusions (joueurs masquant le ballon) jusqu\'à 1.5 secondes</li><li>Exporter les données en CSV et vidéo annotée H.264</li></ul>' +
-    '<h3>Architecture technique</h3><ul><li>Pipeline asynchrone multiprocessing : Reader → Detector → Tracker → Export</li><li><strong>YOLOv8 Nano</strong> quantifié <strong>INT8</strong> via TensorFlow Lite — inférence &lt;30ms</li><li>Filtre de <strong>Kalman</strong> pour le tracking continu à travers les occlusions</li></ul>' +
-    '<h3>Résultats</h3><ul><li>&ge;25 FPS sur flux 1080p</li><li>Recall &gt;85%, latence &lt;200ms</li><li>Mémoire &lt;3.5 GB, température &lt;75°C</li></ul>' +
+    h: '<h3>Contexte</h3><p>Projet personnel de fin d\'études. Les clubs de football amateurs n\'ont pas accès aux outils d\'analyse vidéo des clubs professionnels (coût supérieur à 10 000€). EcoTrack-Foot propose une alternative embarquée à moins de 150€.</p>' +
+    '<h3>Objectifs</h3><ul><li>Détecter et suivre le ballon en temps réel (≥25 FPS) sur Raspberry Pi 5</li><li>Atteindre un recall supérieur à 85% même en conditions d\'éclairage variable</li><li>Gérer les occlusions (joueurs masquant le ballon) jusqu\'à 1.5 secondes</li><li>Exporter les données en CSV et vidéo annotée H.264</li></ul>' +
+    '<h3>Architecture technique</h3><ul><li>Pipeline asynchrone multiprocessing : Reader → Detector → Tracker → Export</li><li>YOLOv8 Nano quantifié INT8 via TensorFlow Lite, inférence inférieure à 30ms</li><li>Filtre de Kalman pour le tracking continu à travers les occlusions</li></ul>' +
+    '<h3>Résultats</h3><ul><li>≥25 FPS sur flux 1080p</li><li>Recall supérieur à 85%, latence inférieure à 200ms</li><li>Mémoire inférieure à 3.5 GB, température inférieure à 75°C</li></ul>' +
     '<div class="m-chips"><span>Python</span><span>YOLOv8</span><span>OpenCV</span><span>TFLite</span><span>Kalman</span><span>RPi 5</span><span>Multiprocessing</span></div>'
 },
 vga: {
     t: "Contrôleur VGA sur FPGA",
     badge: "Académique", bc: "cat-acad", y: "2024",
     h: '<div class="m-imgs"><img src="images/vga-rtl.png" alt="Schéma RTL"><img src="images/vga-arch.png" alt="Architecture VGA_DISPLAY"><img src="images/vga-sim.png" alt="Simulation"></div>' +
-    '<h3>Contexte</h3><p>Projet universitaire — conception <strong>from scratch</strong> en VHDL d\'un contrôleur vidéo complet, sans utiliser aucune IP propriétaire Xilinx. Déploiement sur carte <strong>Basys3</strong> (Artix-7 FPGA).</p>' +
+    '<h3>Contexte</h3><p>Projet universitaire : conception from scratch en VHDL d\'un contrôleur vidéo complet, sans utiliser aucune IP propriétaire Xilinx. Déploiement sur carte Basys3 (Artix-7 FPGA).</p>' +
     '<h3>Objectifs</h3><ul><li>Générer un signal VGA 640×480 @ 60Hz conforme au standard</li><li>Concevoir une architecture RTL modulaire et testable</li><li>Valider par simulation avant synthèse et déploiement physique</li></ul>' +
     '<h3>Architecture RTL</h3><ul><li><strong>Clock_Divider</strong> : 100 MHz → 25.175 MHz (pixel clock)</li><li><strong>VGA_SYNC</strong> : compteurs horizontaux/verticaux, génération HSYNC/VSYNC</li><li><strong>VGA_DISPLAY</strong> : logique de couleur RGB avec patterns de test</li></ul>' +
     '<h3>Livrables</h3><ul><li>Code VHDL complet avec testbenches pour chaque module</li><li>Synthèse : LUT 1%, FF 1%, IO 9%, 0 erreur, 0 failing endpoint</li><li>Implémentation : WNS 8.564 ns, puissance 0.073 W</li><li>Signal VGA opérationnel vérifié sur moniteur</li></ul>' +
@@ -547,17 +484,17 @@ fir: {
     t: "Filtre Numérique FIR sur Cortex-M4",
     badge: "Académique", bc: "cat-acad", y: "2024",
     h: '<div class="m-imgs"><img src="images/fir.png" alt="Réponse du filtre FIR"></div>' +
-    '<h3>Contexte</h3><p>Projet universitaire de traitement numérique du signal — implémentation d\'un filtre passe-bas FIR sur microcontrôleur <strong>ARM Cortex-M4</strong>, en exploitant les capacités DSP du processeur.</p>' +
-    '<h3>Objectifs</h3><ul><li>Concevoir le filtre sous <strong>MATLAB</strong> (spécifications fréquentielles)</li><li>Quantifier les coefficients en <strong>virgule fixe Q15</strong></li><li>Exploiter les instructions <strong>DSP SIMD</strong> du Cortex-M4</li><li>Valider la réponse fréquentielle par analyse spectrale (FFT)</li></ul>' +
-    '<h3>Livrables</h3><ul><li>Code C optimisé utilisant les fonctions <strong>CMSIS-DSP</strong></li><li>Buffer circulaire pour minimiser les copies mémoire</li><li>Validation : le signal bruité d\'entrée est correctement filtré (voir graphique)</li></ul>' +
-    '<div class="m-highlight"><p>Le graphique montre l\'efficacité du filtrage : signal bruité (gris) vs signal filtré (bleu) — le filtre FIR supprime efficacement le bruit haute fréquence tout en préservant le signal utile.</p></div>' +
+    '<h3>Contexte</h3><p>Projet universitaire de traitement numérique du signal : implémentation d\'un filtre passe-bas FIR sur microcontrôleur ARM Cortex-M4, en exploitant les capacités DSP du processeur.</p>' +
+    '<h3>Objectifs</h3><ul><li>Concevoir le filtre sous MATLAB (spécifications fréquentielles)</li><li>Quantifier les coefficients en virgule fixe Q15</li><li>Exploiter les instructions DSP SIMD du Cortex-M4</li><li>Valider la réponse fréquentielle par analyse spectrale (FFT)</li></ul>' +
+    '<h3>Livrables</h3><ul><li>Code C optimisé utilisant les fonctions CMSIS-DSP</li><li>Buffer circulaire pour minimiser les copies mémoire</li><li>Validation : le signal bruité d\'entrée est correctement filtré (voir graphique)</li></ul>' +
+    '<div class="m-highlight"><p>Le graphique montre l\'efficacité du filtrage : signal bruité (gris) vs signal filtré (bleu). Le filtre FIR supprime efficacement le bruit haute fréquence tout en préservant le signal utile.</p></div>' +
     '<div class="m-chips"><span>C</span><span>CMSIS-DSP</span><span>ARM Cortex-M4</span><span>MATLAB</span><span>Fixed-Point Q15</span><span>FFT</span></div>'
 },
 gpio: {
     t: "Driver Linux GPIO",
     badge: "Académique", bc: "cat-acad", y: "2024",
-    h: '<h3>Contexte</h3><p>Projet universitaire de programmation système — développement d\'un module noyau Linux complet (Character Device Driver) pour piloter des GPIOs avec gestion des interruptions matérielles.</p>' +
-    '<h3>Objectifs</h3><ul><li>Implémenter les file operations du kernel : open, read, write, ioctl, release</li><li>Gérer les interruptions GPIO via un IRQ handler</li><li>Exposer une interface <strong>sysfs</strong> pour le contrôle depuis l\'espace utilisateur</li><li>Assurer une gestion propre des ressources (probe/remove)</li></ul>' +
+    h: '<h3>Contexte</h3><p>Projet universitaire de programmation système : développement d\'un module noyau Linux complet (Character Device Driver) pour piloter des GPIOs avec gestion des interruptions matérielles.</p>' +
+    '<h3>Objectifs</h3><ul><li>Implémenter les file operations du kernel : open, read, write, ioctl, release</li><li>Gérer les interruptions GPIO via un IRQ handler</li><li>Exposer une interface sysfs pour le contrôle depuis l\'espace utilisateur</li><li>Assurer une gestion propre des ressources (probe/remove)</li></ul>' +
     '<h3>Livrables</h3><ul><li>Module noyau compilable et chargeable (insmod/rmmod)</li><li>Interface sysfs fonctionnelle</li><li>Gestion robuste des erreurs et des cas limites</li></ul>' +
     '<div class="m-chips"><span>C</span><span>Linux Kernel</span><span>Character Device</span><span>GPIO</span><span>IRQ</span><span>sysfs</span><span>Device Tree</span></div>'
 },
@@ -565,20 +502,46 @@ rtos: {
     t: "Système d\'Acquisition RTOS",
     badge: "Académique", bc: "cat-acad", y: "2025",
     h: '<div class="m-imgs"><img src="images/rtos.svg" alt="Architecture RTOS"></div>' +
-    '<h3>Contexte</h3><p>Projet universitaire — firmware multitâche sur <strong>STM32 + FreeRTOS</strong>, implémentant une architecture producteur-consommateur pour l\'acquisition de données capteurs.</p>' +
+    '<h3>Contexte</h3><p>Projet universitaire : firmware multitâche sur STM32 + FreeRTOS, implémentant une architecture producteur-consommateur pour l\'acquisition de données capteurs.</p>' +
     '<h3>Objectifs</h3><ul><li>Concevoir une architecture temps réel à 3 niveaux de priorité</li><li>Garantir l\'intégrité des données avec des mécanismes de synchronisation</li><li>Implémenter un watchdog pour la robustesse</li></ul>' +
-    '<h3>Architecture</h3><ul><li><strong>Tâche haute priorité</strong> : acquisition ADC via DMA</li><li><strong>Tâche moyenne</strong> : filtrage numérique des échantillons</li><li><strong>Tâche basse</strong> : transmission UART vers PC</li><li>Communication inter-tâches via <strong>queues</strong> et <strong>mutex</strong></li></ul>' +
+    '<h3>Architecture</h3><ul><li>Tâche haute priorité : acquisition ADC via DMA</li><li>Tâche moyenne : filtrage numérique des échantillons</li><li>Tâche basse : transmission UART vers PC</li><li>Communication inter-tâches via queues et mutex</li></ul>' +
     '<h3>Livrables</h3><ul><li>Firmware complet déployé et testé sur cible STM32</li><li>Documentation de l\'architecture et des mécanismes de synchronisation</li></ul>' +
     '<div class="m-chips"><span>STM32</span><span>FreeRTOS</span><span>C</span><span>HAL</span><span>ADC/DMA</span><span>UART</span><span>Watchdog</span></div>'
 },
 yocto: {
     t: "Distribution Linux Embarqué (Yocto)",
     badge: "Académique", bc: "cat-acad", y: "2024",
-    h: '<h3>Contexte</h3><p>Projet universitaire — création d\'une distribution Linux sur-mesure avec le <strong>Yocto Project</strong>, optimisée pour une cible ARM embarquée.</p>' +
-    '<h3>Objectifs</h3><ul><li>Configurer un <strong>BSP ARM</strong> et intégrer les drivers nécessaires</li><li>Créer des layers et recettes <strong>BitBake</strong> personnalisés</li><li>Minimiser la taille de l\'image rootfs</li><li>Cross-compiler et déployer sur cible</li></ul>' +
-    '<h3>Livrables</h3><ul><li>Image rootfs fonctionnelle de seulement <strong>8.2 MB</strong></li><li>Layers custom avec recettes documentées</li><li>Procédure de build et de déploiement reproductible</li></ul>' +
-    '<div class="m-highlight"><p>Résultat clé : rootfs de 8.2 MB — environ 50× plus légère qu\'une Raspbian standard, avec uniquement les composants nécessaires.</p></div>' +
+    h: '<h3>Contexte</h3><p>Projet universitaire : création d\'une distribution Linux sur-mesure avec le Yocto Project, optimisée pour une cible ARM embarquée.</p>' +
+    '<h3>Objectifs</h3><ul><li>Configurer un BSP ARM et intégrer les drivers nécessaires</li><li>Créer des layers et recettes BitBake personnalisés</li><li>Minimiser la taille de l\'image rootfs</li><li>Cross-compiler et déployer sur cible</li></ul>' +
+    '<h3>Livrables</h3><ul><li>Image rootfs fonctionnelle de seulement 8.2 MB</li><li>Layers custom avec recettes documentées</li><li>Procédure de build et de déploiement reproductible</li></ul>' +
+    '<div class="m-highlight"><p>Résultat clé : rootfs de 8.2 MB, environ 50× plus légère qu\'une Raspbian standard, avec uniquement les composants nécessaires.</p></div>' +
     '<div class="m-chips"><span>Yocto</span><span>BitBake</span><span>Linux</span><span>Shell</span><span>Cross-compilation</span><span>BSP ARM</span></div>'
+},
+line: {
+    t: "Robot Suiveur de Ligne (ROS / Gazebo)",
+    badge: "Académique", bc: "cat-acad", y: "2024",
+    h: '<h3>Contexte</h3><p>Projet universitaire de robotique : conception et simulation d\'un robot mobile différentiel capable de suivre une ligne au sol de manière autonome dans l\'environnement ROS/Gazebo.</p>' +
+    '<h3>Objectifs</h3><ul><li>Modéliser le robot sous Fusion 360 et l\'exporter au format URDF</li><li>Implémenter la perception caméra pour la détection de ligne</li><li>Développer un régulateur PID calibré pour le suivi</li><li>Valider le comportement dans Gazebo avec une piste personnalisée</li></ul>' +
+    '<h3>Livrables</h3><ul><li>Modèle URDF complet du robot</li><li>Noeud ROS de perception (traitement image caméra)</li><li>Noeud ROS de contrôle PID publiant sur /cmd_vel</li><li>Monde Gazebo avec piste de test</li></ul>' +
+    '<div class="m-highlight"><p>Chaîne complète CAD → simulation → contrôle dans l\'écosystème ROS.</p></div>' +
+    '<div class="m-chips"><span>ROS1</span><span>Gazebo</span><span>Fusion 360</span><span>Python</span><span>PID</span><span>URDF</span><span>OpenCV</span></div>'
+},
+omni: {
+    t: "Robot Omnidirectionnel (Omni Bot)",
+    badge: "Académique", bc: "cat-acad", y: "2024",
+    h: '<h3>Contexte</h3><p>Projet universitaire de robotique mobile : conception et réalisation d\'un robot à 4 roues Mecanum capable de se déplacer dans toutes les directions sans tourner (mouvement holonomique).</p>' +
+    '<h3>Objectifs</h3><ul><li>Assembler la plateforme mécanique avec 4 roues Mecanum en configuration X</li><li>Programmer le contrôle PWM des 4 moteurs DC via Arduino + drivers Cytron</li><li>Implémenter la cinématique inverse : conversion joystick → vitesses individuelles par roue</li><li>Intégrer le pilotage sans fil via manette PS3</li></ul>' +
+    '<h3>Livrables</h3><ul><li>Robot fonctionnel avec mouvement holonomique complet</li><li>Firmware Arduino avec gestion d\'accélération/décélération douce</li><li>Documentation de la cinématique inverse</li></ul>' +
+    '<div class="m-chips"><span>Arduino</span><span>Cytron</span><span>PWM</span><span>LiPo 3S</span><span>Cinématique inverse</span><span>PS3</span><span>C/C++</span></div>'
+},
+ugv: {
+    t: "Véhicule Terrestre Autonome (UGV)",
+    badge: "Académique", bc: "cat-acad", y: "2024",
+    h: '<h3>Contexte</h3><p>Projet universitaire de robotique autonome : conception d\'un robot capable de naviguer de manière autonome en intérieur en évitant les obstacles, en combinant vision de profondeur et planification réactive.</p>' +
+    '<h3>Objectifs</h3><ul><li>Intégrer une caméra Intel RealSense pour la perception de profondeur</li><li>Implémenter la navigation autonome réactive sous ROS sur Raspberry Pi</li><li>Piloter les moteurs DC via Arduino + pont H L293D</li><li>Articuler la caméra via un moteur pas-à-pas pour élargir le champ de vision</li></ul>' +
+    '<h3>Livrables</h3><ul><li>Robot autonome opérationnel en navigation intérieure</li><li>Noeud ROS de navigation réactive basé sur les données de profondeur</li><li>Firmware Arduino pour le contrôle moteur</li><li>Documentation d\'architecture multi-systèmes</li></ul>' +
+    '<div class="m-highlight"><p>Intégration multi-systèmes (vision, navigation, actionnement) sur plateforme embarquée contrainte.</p></div>' +
+    '<div class="m-chips"><span>Raspberry Pi</span><span>ROS</span><span>Arduino</span><span>Intel RealSense</span><span>L293D</span><span>Python</span><span>Stepper</span></div>'
 }
 };
 
